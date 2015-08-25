@@ -1,1 +1,1 @@
-A hub for work-in-progress papers and other written material
+A hub for work-in-progress papers and other written material. This repo is primarily used as a backup for easy editing of documents across devices, so the material contained here should be viewed as being in draft form. 
