@@ -1,0 +1,1072 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Semantic Composition and Models of Linguistic Comprehension
+\end_layout
+
+\begin_layout Abstract
+This thesis is concerned with the problem of ascribing meanings to expressions
+ in a natural language.
+ Traditionally, philosophers have attempted to solve this problem by proposing
+ views on which a meaning is a particular kind of entity (e.g.
+ a proposition, a referent, a mental state etc.).
+ The job of a semantic theory, as such, is to pair linguistic expressions
+ with the entities that constitute their meanings.
+ In Part 1, I argue for an alternative view on which meaning attributions
+ are simply concise ways of expressing predictive generalizations about
+ cognitive and behavioral phenomena.
+ To give an account of the meaning of a linguistic expression, I claim,
+ is simply to give a set of probabilistic expectations concerning the cognitive
+ and behavioral effects of its use.
+ This empirically-oriented approach to semantics gives rise to a number
+ of theoretical desiderata that I outline in Chapter 1.
+ In Chapter 2, I argue that these desiderata constrain the space of potential
+ semantic theories to include only those that make representational contents
+ dependent on the functional roles of representational vehicles.
+ Chapter 3 offers a reconsideration of the principle of compositionality,
+ a basic theoretical assumption in both cognitive science and linguistics
+ that is widely assumed to be inconsistent with any account of semantics
+ that appeals to functional roles.
+ 
+\end_layout
+
+\begin_layout Abstract
+Part 2 of the thesis is concerned with providing a formal account of semantics
+ that satisfies the criteria discussed in Part 1.
+ First, I examine existing alternatives.
+ I conclude in Chapter 4 that these alternatives are generally either compositio
+nal and inadequately functionalist, or functionalist and inadequately compositio
+nal.
+ I go on to develop an account on which linguistic comprehension is modelled
+ as a sequence of cognitive processes initiated by the perception of a sequence
+ of linguistic expressions.
+ The perception of a word, for instance, initiates a procedure that puts
+ a cognitive system into a state that licenses the syntactic and semantic
+ functions of the word.
+ As further word perceptions initiate further procedures of this sort, the
+ system's resulting state can be characterized as a 
+\begin_inset Quotes eld
+\end_inset
+
+mental model
+\begin_inset Quotes erd
+\end_inset
+
+ that satisifies the functional specification (i.e.
+ the predictions) associated with a particular semantic attribution for
+ a phrase or sentence.
+ Chapter 5 describes a method for generating of this mental model from linguisti
+c input using a hierarchical constraint satisfaction procedure.
+ Each word in the input stream favors or penalizes the inclusion or particular
+ structural components in the resulting model.
+ At lower levels in the hierachy, the structural components in questions
+ correspond to collections of the kinds of semantic and syntactic features
+ typically found in contemporary linguistic theory; at higher levels in
+ the hierarchy, the structural components correspond to collections of compresse
+d approximations of lower-level components.
+ The resulting model can be described as a 
+\begin_inset Quotes eld
+\end_inset
+
+shallow
+\begin_inset Quotes erd
+\end_inset
+
+ semantic parse that captures abstract information concerning 
+\begin_inset Quotes eld
+\end_inset
+
+who did what to whom
+\begin_inset Quotes erd
+\end_inset
+
+ (to use a common phrase).
+ 
+\end_layout
+
+\begin_layout Abstract
+Mathematically, each structural component can be characterized as a high-dimensi
+onal vector, and the constraints defined on these components can be characterize
+d as scalar-valued functions on the underling vector space.
+ (Psychologically, it is possible to think of these structural components
+ as representations retrieved from long-term memory in service of the generation
+ of a contextually appropriate representation in short-term memory.) Finally,
+ I illustrate how the constraints in the model can learned via standard
+ optimization methods.
+ The result of this learning procedure is a parameterization of the model
+ that allows a linguistic input to be translated into a structure that possess
+ the functional dispositions that constitute its meaning.
+ These functional dispositions are assessed through simple question-answering
+ tasks that require the model to appropriately respond to queries concerning
+ a single sentence or paragraph.
+ 
+\end_layout
+
+\begin_layout Abstract
+Part 3 of the thesis is concerned with practical applications and theoretical
+ reflections.
+ First, I apply the model to a standard question-answering data set.
+ I aim to achieve near state-of-the-performance on this dataset in comparison
+ to the other methods discussed in Part 1.
+ In the remainder of the thesis, I compare and contrast the formal and philosoph
+ical details of my work with the alternatives available in the literature.
+ Specifically, I endeaver to show that while the formal details of my approach
+ can be given equivalent probabilistic and control-theoretic interpretations.
+ On a more philosophical front, I illustrate how my work is both consistent
+ with standard descriptions of inferentialist semantic theories and resistant
+ to the criticisms typically lodged against these theories.
+ I conclude, finally, with a brief discussion of future directions for this
+ research.
+ 
+\end_layout
+
+\begin_layout Section*
+1.
+ A Cognitive Approach to Semantics
+\end_layout
+
+\begin_layout Quote
+In order to say what a meaning 
+\shape italic
+is
+\shape default
+, we may first ask what a meaning 
+\shape italic
+does
+\shape default
+, and then find something that does that.
+ - David Lewis, 1970
+\end_layout
+
+\begin_layout Standard
+There seems to be no shortage of things for meanings to do.
+ On the one hand, they are given the rather theoretical job of connecting
+ words to objects in the world and specifying the truth conditions of sentences.
+ On the other hand, they are given the rather practical job of explaining
+ linguistic and cognitive behavior.
+ Philosophers have put a lot of effort into finding entities that are able
+ to satisfy these job descriptions, but to relatively little avail.
+ In practice, more or less distinct theories have been developed to achieve
+ more or less distinct goals.
+ For instance, theories in formal semantics are designed to account for
+ truth and reference, but not for linguistic behavior.
+ Theories in pragmatics and psychology, by comparison, are designed to do
+ roughly the opposite.
+ As such, there appear to be two largely independent notions of meaning
+ at play in the philosophical literature: the first notion - call it 
+\begin_inset Quotes eld
+\end_inset
+
+metaphysical semantics
+\begin_inset Quotes erd
+\end_inset
+
+ - is concerned with relations that obtain between representations and reality,
+ while the second notion - call it 
+\begin_inset Quotes eld
+\end_inset
+
+cognitive semantics
+\begin_inset Quotes erd
+\end_inset
+
+ - is concerned with explaining how people comprehend and produce linguistic
+ expressions.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The tension between these two notions of meaning is well known.
+ The related problems of integrating (formal) semantics with pragmatics
+ and accounting for the apparent context-dependency of meaning can both
+ be characterized as stemming from the differing goals of metaphysical and
+ cognitive approaches to semantics.
+ Moreover, researchers often explicitly argue that either metaphysical semantics
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+My goal in this chapter is to motivate a cognitive approach to semantics
+ and outline a corresponding set of theoretical desiderata.
+ There are two main reasons for favoring the cognitive approach.
+ First, it accords well with a naturalistic conception of philosophy.
+ To a naturalist, meanings can be thought of as entities posited by a scientific
+ theory that aims to explain how and why we use linguistic expressions in
+ the way that we do.
+ Attributing a meaning to word is not unlike attributing a center of mass
+ to an object or charge to a particle (cf.
+ Dennett, 1987); in all such cases, the attribution is warranted because
+ lends explanatory and predictive insight into certain phenomena of interest
+ (i.e.
+ phenomena involving words, objects, and particles respectively).
+ Second, very little is lost by giving up on the considerations that have
+ motivated the metaphysical approach.
+ Placing reference and truth at the core of semantic theory has yielded
+ well-known theoretical considerations on which the meaning of an expression
+ or mental state can depend on facts entirely unknown to language users
+ (e.g.
+ Twin earth cases, Frege cases, etc).
+ I argue that such considerations give rise to unsatisfiable and counterproducti
+ve theoretical demands.
+ Put simply, allowing distinctions in meaning to correspond to obscure distincti
+ons in reality burdens semantic theory with a dependency on facts about
+ the world that have essentially nothing to do with language use.
+ Morevoer, communal ignorance of such facts problematically translates into
+ communal ignorance about the meanings of ordinary words and sentences.
+\end_layout
+
+\begin_layout Standard
+As a result of these considerations favoring the cognitive approach, I propose
+ a set of four criteria that can be used to evaluate competing semantic
+ theories:
+\end_layout
+
+\begin_layout Enumerate
+The predictive adequacy criterion.
+\end_layout
+
+\begin_layout Enumerate
+The implementation criterion.
+\end_layout
+
+\begin_layout Enumerate
+The compositionality criterion.
+\end_layout
+
+\begin_layout Enumerate
+The scalabilty criterion.
+\end_layout
+
+\begin_layout Standard
+While these criteria are somewhat distinct from those commonly found in
+ the literature, they should not be entirely surprising.
+ The first criterion is meant to capture the idea that the attribution of
+ a particular meaning to a linguistic expression is warranted only when
+ doing so has scientific value.
+ Such value, I contend, arises when the meaning attributed to a particular
+ expression gives rise to successful predictions concerning (a) the cognitive
+ states of individuals who produce or comprehend the expresssion, and (b)
+ the verbal behavior of such individuals.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Of course, one's cognitive states and one's verbal behavior are deeply intertwin
+ed, so it is.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To illustrate with an example, consider the following sentence: “The boy
+ waited for the pitch and then hit the ball over the fence”.
+ A competent speaker of English is able to rapidly infer from this sentence
+ that the boy is likely playing baseball, that he has used a bat to hit
+ the ball, and that the phrase “over the fence” refers to where the ball
+ went after he hit it, rather than to the location of the ball when he hit
+ it.
+ The predictive adequacy criterion favors attributing a meaning to this
+ sentence that entails that anyone who correctly understands it will provide
+ appropriate answers to questions such as 
+\begin_inset Quotes eld
+\end_inset
+
+Where did the ball go?
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+What did the boy likely use to hit the ball?
+\begin_inset Quotes erd
+\end_inset
+
+ Finally, it is worth emphasizing that these predictions are most naturally
+ understood in probabilistic rather than deductive terms: a meaning attribution
+ does not 
+\shape italic
+entail
+\shape default
+ the truth of certain conterfactual conditionals concerning linguistic or
+ cognitive behavior; rather it 
+\shape italic
+favors
+\shape default
+ such conditionals in a violable manner.
+\end_layout
+
+\begin_layout Standard
+The second criterion is meant to capture the idea that predictions licensed
+ by a particular meaning attribution place constraints on the behavior of
+ the target of the attribution.
+ A meaning, again, is a functional specification of sorts concerning the
+ behavior of a word or mental state.
+ In order for this functional specification to be satisfied, though, 
+\end_layout
+
+\begin_layout Standard
+The second criterion is meant to account for the fact that meanings characterize
+ relations between representational vehicles (e.g.
+ words) and certain actions (e.g.
+ thoughts and behaviors).
+ Linguistic expressions are widely acknowledged to communicate cognitive
+ states, and part of the burden of a semantic theory is to explain how this
+ communicative process occurs.
+ For instance, if a speaker describes a particular situation, the sentences
+ constituting this description can function to evoke a variety of mental
+ states in a listener.
+ These mental states, in turn, are precisely what sustain the predictions
+ fostered by a meaning attribution.
+ To reuse the previous example, the mental states evoked in listener who
+ hears the sentence 
+\begin_inset Quotes eld
+\end_inset
+
+The boy waited for the pitch and then hit the ball over the fence
+\begin_inset Quotes erd
+\end_inset
+
+ are precisely what are responsible for the fact that the listener responds
+ to certain questions (e.g.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Where did the ball go?
+\begin_inset Quotes erd
+\end_inset
+
+) with certain answers (e.g.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Over the fence
+\begin_inset Quotes erd
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+The third criterion is widely accepted in discussions of semantics, and
+ is meant to account for the fact that people are able to generalize their
+ knowledge of the meanings of simple linguistic expressions (and syntax)
+ to produce arbitrarily large numbers of more complicated expressions.
+ In typical discussions of semantics, this productive capacity is characterized
+ in terms of the recursive application of a finite (and therefore learnable)
+ set of semantic and syntactic rules.
+ While I do not wish to adhere strictly to this traditional picture, I do
+ wish to maintain that any adequate semantic theory has to provide some
+ explanation of how the meanings of complex expressions (e.g.
+ sentences) are related to the meanings of their simpler parts (e.g.
+ words and phrases).
+ 
+\end_layout
+
+\begin_layout Standard
+The fourth criterion is 
+\end_layout
+
+\begin_layout Standard
+In the remainder of the chapter, I consider two objections the selection
+ of these criteria.
+ The first objection maintains that they favor a kind of instrumentalism
+ that is typical of theories that prioritize predictive adequacy over other
+ concerns (see e.g.
+ Dennett, 1987).
+ My response is that if the distinctions between two competing meaning attributi
+ons have no empirical basis, then it is unclear that there reasons to prefer
+ one over the other.
+ In other words, I am taking Lewis to heart and claiming that if two competing
+ meaning attributions 
+\shape italic
+do
+\shape default
+ the same work, then for all intents and purposes, they 
+\shape italic
+are
+\shape default
+ the same.
+ If this amounts to an instrumentalist view, then so be it.
+\end_layout
+
+\begin_layout Standard
+The second objection claims that the cognitive approach entails a form of
+ meaning relativism.
+ Again, I am willing to concede the point to an extent.
+ Words do mean different things to different people, because usage of a
+ given word can sustain different predictive generalizations in different
+ individuals and different social groups.
+ However, the fact language use is a social practice militates against widesprea
+d relativism.
+ People communicate to achieve practical goals, and achieving these such
+ goals requires that people be able to make good predictions in relation
+ to the usage of particular linguistic expressions; hence, people converge
+ on shared patterns of usage that foster predictive success.
+ As such, a tempered form of relativism is to be expected rather than avoided.
+ 
+\end_layout
+
+\begin_layout Standard
+In summary, the main purpose of this chapter is to set the stage for the
+ development of an approach to semantics that is both philosophically robust
+ and integrated with the broader research goals of cognitive science.
+ In the next chapter, I evaluate a number of existing semantic theories
+ against these criteria and argue that, while they are all found wanting
+ in at least some respect, the theories that do best are almost uniformly
+ theories that emphasize a representation's the functional role.
+ 
+\end_layout
+
+\begin_layout Section*
+2.
+ Of Minds, Meanings and Functional Roles
+\end_layout
+
+\begin_layout Quote
+You shall know a word by the company it keeps.
+ - J.R.
+ Firth, 1957
+\end_layout
+
+\begin_layout Standard
+In this chapter, I argue that taking the empirical approach to semantics
+ outlined in Chapter 1 requires adopting a functionalist theory of meaning.
+ To support this argument, I examine the characteristic features of denotational
+ theories of meaning and illustrate how they are unable, in principle, to
+ satisfy the predictive adequacy criterion.
+ My analysis proceeds in two stages.
+ First, I identify a property characteristic of all denotational theories,
+ namely that they define a set of entities that are the allowable meanings
+ of linguistic expressions.
+ This is a rather weak restriction in the sense that the entities in questions
+ could be states of the world, states in a cognitive model, numbers, computer
+ programs, linguistic expressions, or any number of other things (Liang
+ & Potts, 2015).
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+All this said, some things serve as more theoretically attractive denotations
+ than others.
+\end_layout
+
+\end_inset
+
+ However, it is also a rather strong restriction in the sense that the meanings
+ of linguistic expressions are required to be individual things of some
+ kind or other.
+\end_layout
+
+\begin_layout Standard
+The problem
+\end_layout
+
+\begin_layout Standard
+In the remainder of this essay, I make a minor detour 
+\end_layout
+
+\begin_layout Standard
+Overall, attributing a meaning is akin to generating a hypothesis.
+ To ascribe a meaning to a word or sentence is to give an account of how
+ individuals who comprehend the word or sentence will behave and think under
+ various conditions.
+ In turn, whether or not a meaning attribution is correct depends upon the
+ degree to which the cognitive and behaviorial dispositions it predicts
+ actually obtain.
+ The problem facing a language learner, as such, is to select correct hypotheses
+ concerning the dispositions that accompany the usage of particular words,
+ phrases, and sentences.
+ Once one has learned a language to a sufficient degree, one has obtained
+ a relatively stable set of hypotheses (in fact, a theory of sorts) concerning
+ the likely effects particular uses of language have on other people.
+ Of course, these expectations are defeasible, 
+\end_layout
+
+\begin_layout Section*
+3.
+ Reconsidering Compositionality
+\end_layout
+
+\begin_layout Quote
+It is enough if the sentence as whole has meaning; thereby also its parts
+ obtain their meanings - Frege, 1914
+\end_layout
+
+\begin_layout Standard
+The principle of compositionality states that the meaning of a complex expressio
+n is determined by the meanings of its constituents and the way they are
+ combined (Szabo, 2012; Fodor & Pylyshyn, 1988).
+ In the study of natural language semantics, this principle is often taken
+ to entail that expressions such as phrases and sentences are interpreted
+ in the following two-step manner (Recanati, 2012): first, a set of a lexical
+ rules are used to assign meanings to individual words; then, a set of compositi
+on rules are used to combine these simple meanings into the meaning of a
+ phrase or sentence.
+ 
+\end_layout
+
+\begin_layout Standard
+Perhaps unsurprisingly, the principle is widely seen to pose a problem for
+ functional role semantics.
+ Philosophers have provided numerous examples of complex linguistic expressions
+ that appear to have functional roles unrelated to the functional roles
+ of their constituent parts (e.g Fodor and Lepore, 1991; Fodor, 1998).
+ Moreover, there is a long history of successful efforts to formalize denotation
+al semantics that has simply not been matched by propents of functional
+ role semantics (c.f.
+ Pagin, 1997).
+ This lack of theoretical progress has led to considerable skepticism about
+ the viability of functionalist theories.
+ 
+\end_layout
+
+\begin_layout Standard
+My goal in this chapter is to provide a counterweight to such skepticism.
+ Specifically, I propose a view on which simple linguistic representations
+ individually impose numerous constraints on a search through a space of
+ entities with particular functional dispositions.
+ Taken collectively, these constraints pick out an entity with a functional
+ disposition that accords with the semantics of a complex linguistic expression.
+ The process of optimizing over these soft constraints is hypothesized to
+ occur at different levels of abstraction, allowing for compositional constructi
+ons of varying degrees of complexity.
+ To give an example, a determiner and a noun might together impose constraints
+ on the selection of an entity with the functional disposition appropriate
+ to a noun phrase.
+ In turn, the resulting noun-phrase can in turn be characterized as imposing
+ constraints on the selection of an entity with the functional disposition
+ of a sentence.
+ This sentence-level selection process can then be resolved by the introduction
+ of further constraints corresponding to another sentential constituent
+ (e.g.
+ a verb phrase).
+ Developing a semantic theory, as such, involves specifying the candidate
+ entities at each level of syntactic abstraction and then defining the constrain
+ts that select amongst these various candidates in various circumstances.
+ A mathematically precise version of such a theory is provided in Part 2
+ below.
+ 
+\end_layout
+
+\begin_layout Standard
+In the remainder of the chapter, I give three reasons for favoring this
+ constraint-based description of semantic composition.
+ First, it is theoretically consistent with the criteria outlined in Chapter
+ 1.
+ If meaning attributions are simply predictive generizations associated
+ with the use of particular words and sentences, then complex meanings are
+ not 
+\begin_inset Quotes eld
+\end_inset
+
+built up
+\begin_inset Quotes erd
+\end_inset
+
+ from simpler ones through a process analogous to the construction of wall
+ from a collection of bricks (citation).
+ The probabilistic expectations corresponding to a simple linguistic expression
+ instead provide defeasible evidence in favor of associating certain probabilist
+ic expectations with a more complex linguistic expression.
+ By comparison, standard approaches to compositionality relate the meanings
+ of simple and complex expressions through simple rules, but it is implausible
+ to suppose that such rules can suffice for a semantic theory that satisfies
+ the predictive adequacy criterion.
+ To explain with an example, the semantic composition of certain adjectives
+ and nouns is standardly modeled as the intersection of the sets denoted
+ by each noun and adjective.
+ It is highly unlikely that a comparably simple operation can be used to
+ 
+\begin_inset Quotes eld
+\end_inset
+
+compose
+\begin_inset Quotes erd
+\end_inset
+
+ the functional dispositions associated with words in these types.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Suppose, for instance, that these functional dispositions are characterized
+ as sets of predictions.
+ Why think that the predictions associated with a complex expression would
+ be all and only the predictions shared by each of its simpler constituents?
+ Suppose alternatively that the functional dispositions in question can
+ be characterized as probability distributions over verbal behaviors or
+ cognitive states.
+ Why think that a simple rule would suffice to combine such distributions
+ in the appropriate way? 
+\end_layout
+
+\end_inset
+
+ An optimization-based approach, however, has the necessary flexibility
+ to define the appropriate formal relations between these functional disposition
+s.
+ 
+\end_layout
+
+\begin_layout Standard
+Second, the constraint-based approach provides a plausible solution to the
+ problem of accounting for context-sensitivity within a compositional semantics.
+ An important challenge to the idea that natural languages are compositional
+ arises from the fact that many expression types seem to take on different
+ meanings in different contexts 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Recanati:2005,Unnsteinsson:2014"
+
+\end_inset
+
+.
+ Consider, for example, the following sentence: 
+\begin_inset Quotes eld
+\end_inset
+
+Mike finished John's book
+\begin_inset Quotes erd
+\end_inset
+
+ (Recanati, 2004, p.
+ 62).
+ It is highly plausible that the meaning of this sentence can vary depending
+ on whether Mike finished reading the book or finished binding it 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Recanati:2005"
+
+\end_inset
+
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The genitive construction 
+\begin_inset Quotes eld
+\end_inset
+
+John's book
+\begin_inset Quotes erd
+\end_inset
+
+ can also exhibit variation depending on whether, for instance, John wrote
+ the book or John owns the book.
+\end_layout
+
+\end_inset
+
+ But if the verb 
+\begin_inset Quotes eld
+\end_inset
+
+finished
+\begin_inset Quotes erd
+\end_inset
+
+ is assigned a fixed meaning in accordance with a semantic rule, then it
+ is not clear how to account for this variation, since it cannot be attributed
+ to a change in syntactic structure or a modification of the lexical constituent
+s in the sentence.
+ However, if it is assumed that individual words act to impose numerous
+ constraints on the process of linguistic interpretation, then it follows
+ that the behavior of a given word is conditioned by the other words in
+ the sentence.
+ As such, a word like 
+\begin_inset Quotes eld
+\end_inset
+
+finished
+\begin_inset Quotes erd
+\end_inset
+
+ can exhibit different kinds of compositional behavior when it occurs in
+ different linguistic constructions.
+ Moreover, extra-linguistic features of context can also be hypothesized
+ to impose constraints on the selection process.
+ For example, constraints imposed by the topic of prior discourse could
+ resolve the ambiguity present in the above utterance involving John's book
+ by biasing a person who heard the utterance towards responding to particular
+ questions with particular answers (e.g.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Was the book an enjoyable read?
+\begin_inset Quotes erd
+\end_inset
+
+).
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+One might argue that the impact of contextual features on semantic composition
+ could be accounted for by a system of rules that are sensitive to their
+ context of application.
+ This is true in principle, but the rules in question would have to be explicity
+ defined for each possible pairing of a context and a linguistic expression.
+ In practice, enumerating such a large number of rules is intractable.
+ The constraint-based approach gets around this problem by having the effect
+ of each hypothesized rule fall of out an optimization process that is defined
+ only in relation to a fixed inventory of constraints associated with contexts
+ and linguistic expressions individually (i.e.
+ not considered as pairs - the difference is between 2n sets of constraints
+ and 2^n rules, i.e.
+ linear vs.
+ exponential in the number of contexts and expressions).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A third reason to favor a notion of compositionality that is consistent
+ with the predictive adequacy criterion is that doing so usefully allows
+ for 
+\begin_inset Quotes eld
+\end_inset
+
+top down
+\begin_inset Quotes erd
+\end_inset
+
+ effects on interpretation.
+ In accordance with Frege's 
+\begin_inset Quotes eld
+\end_inset
+
+context principle
+\begin_inset Quotes erd
+\end_inset
+
+, one could envision a situation in which the functional disposition associated
+ with a particular word during the initial interpretation of sentence differs
+ from the functional disposition associated with the same word upon the
+ completion of interpretation.
+ Traditional accounts of semantic composition are inconsistent with this
+ possibility.
+ 
+\end_layout
+
+\begin_layout Standard
+Finally, I conclude the chapter by noting that my proposal is actually somewhat
+ conservative: it does not require any radical reinterpretion the principle
+ of compositionality.
+ To explain, the principle merely states that there is some systematic relations
+hip between the meanings of simple and complex linguistic expressions.
+ To borrow an example from Szabo, meanings could be tables and chairs at
+ no risk of violating the principle so long as the tables and chairs assigned
+ to simple linguistic expressions are appropriately related to the tables
+ and chairs assigned to more complex expressions.
+ However, there seems to be a widespread assumption to contrary - namely
+ that a semantic theory can only be compositional if it specifies of set
+ of rules or functions that combine simple meanings into more complex ones.
+ I hope to have cast doubt on this assumption by showing how it leads to
+ a view of linguistic cognition that is both empirically problematic and
+ theoretical restrictive.
+ 
+\end_layout
+
+\begin_layout Section*
+4.
+ The State of the Art
+\end_layout
+
+\begin_layout Standard
+- christiansen and chater quote.
+\end_layout
+
+\begin_layout Standard
+I highlight the strengths and weaknesses of each account and provide a correspon
+ding summary of the types of advancements upon the state-of-the-art that
+ need to be made in order to adequately satisfy 
+\shape italic
+all
+\shape default
+ of the criteriea.
+\end_layout
+
+\begin_layout Standard
+My analysis proceeds in three stages.
+ First, I evaluate connectionist accounts of language processing.
+ For example, I discuss Rogers and McClelland's (2004, 2008) influential
+ model of semantic cognition and concept learning.
+ This model has a considerable amount of predictive power, since it is able
+ to account for a wide range of data concerning categorization, taxonomy
+ induction, and lingustic inference.
+ The model is also loosely consistent with implementational constraints
+ provided by cognitive systems given that it makes use of neuron-like processing
+ units.
+ As such, the model does a reasonably good job of satsifying criteria (1)
+ and (2).
+ More importantly, its representational states are uncontroversially defined
+ in terms of their relationships to one another.
+ For instance, the model's hidden layer representations are defined via
+ a learning algorithm to properly mediate between abstract representations
+ of perceptual inputs and abstract representations of the properties that
+ are characteristic of these inputs.
+ But virtues aside, the model clearly fails to address the compositionality
+ criterion: it provides no description of a mechanism for binding or conjoining
+ representational states.
+ 
+\end_layout
+
+\begin_layout Standard
+Next, I evaluate accounts that describe concepts as intuitive theories of
+ the domains they refer to.
+ Sometimes, these accounts are loose and metaphorical, in that they describe
+ a concept as being 
+\begin_inset Quotes eld
+\end_inset
+
+embedded
+\begin_inset Quotes erd
+\end_inset
+
+ in a network of other concepts.
+ Other times, the accounts are strictly formal, in which case they treat
+ concepts as generative models that create instances of the phenomena they
+ describe.
+ In both cases the assumption of functional role semantics is implicit but
+ clear: an intuitive theory means what it does because it functions to facilitat
+e inferences about the domain it describes; likewise, a generative model
+ means what it does because it functions to produce particular kinds of
+ data under particular conditions.
+ Theory-based approaches generally meet the predictive adequacy criterion,
+ since there is a large literature on 
+\begin_inset Quotes eld
+\end_inset
+
+knowledge effects
+\begin_inset Quotes erd
+\end_inset
+
+ in conceptual processing that are currently explicable only on the assumption
+ that linguistic representations can be described as intuitive theories.
+ However, 
+\end_layout
+
+\begin_layout Standard
+Formal approaches based on Bayesian inference also often satisfy the composition
+ality criterion, since they typically involve defining complex generative
+ models as structured collections of simpler sub-models.
+\end_layout
+
+\begin_layout Standard
+.
+ In this case, however, the implementation and scalability criteria are
+ highly problem for theory-based approaches to modelling linguistic cognition.
+ At best 
+\end_layout
+
+\begin_layout Standard
+Third, I evaluate a number of approaches that are motivated more by a concern
+ for computational effectiveness than a concern for cognitive plausibility.
+ Some of these 
+\end_layout
+
+\begin_layout Standard
+Finally, for the sake of completeness, I evaluate a number of symbolic approache
+s the 
+\end_layout
+
+\begin_layout Standard
+- Act - R 
+\end_layout
+
+\begin_layout Standard
+- 
+\end_layout
+
+\begin_layout Standard
+Altogether, I contend that the scientific success of these approaches is
+ tightly linked to their implicit functionalist assumptions.
+ Finally, to provide some context for this analysis, I briefly consider
+ alternative theories that describe linguistic cognition as a process that
+ involves mapping a linguistic expression onto a 
+\begin_inset Quotes eld
+\end_inset
+
+logical form
+\begin_inset Quotes erd
+\end_inset
+
+ whose denotation provides a meaning.
+ At present, the main arguments favoring these kinds of theories are theoretical
+, not empirical.
+ 
+\end_layout
+
+\begin_layout Section*
+5.
+ Where Syntax and Semantics Meet
+\end_layout
+
+\begin_layout Quote
+If you take care of the syntax of a representational system, its semantics
+ will take care of itself.
+ - Haugeland 
+\end_layout
+
+\begin_layout Quote
+\begin_inset Quotes eld
+\end_inset
+
+The syntactic structure of a sentence is not explicitly represented by the
+ language system, but [rather] plays the role of a processing “trace” of
+ the operations used to create or interpret the sentence
+\begin_inset Quotes erd
+\end_inset
+
+ - Christiansen and Chater (in press).
+\end_layout
+
+\begin_layout Section*
+6.
+ A Compositional Functional Role Semantics
+\end_layout
+
+\begin_layout Standard
+- add model description
+\end_layout
+
+\begin_layout Section*
+7.
+ Learning A Compositional Functional Role Semantics
+\end_layout
+
+\begin_layout Standard
+- add parameterization procedure
+\end_layout
+
+\begin_layout Section*
+8.
+ Applications to Question-Answering Tasks
+\end_layout
+
+\begin_layout Section*
+9.
+ Descriptive Equivalencies 
+\end_layout
+
+\begin_layout Section*
+10.
+ Philosophical Reflections
+\end_layout
+
+\begin_layout Standard
+The goal of this chapter is essentially to deflect a large number of potential
+ objections a 
+\end_layout
+
+\begin_layout Standard
+DCS, to explain, defines a semantic parse in terms of predi cates (e.g.
+ ‘person’, ‘city’, ‘author’ etc.) and relations (e.g.
+ ‘join’) that mirror the words and dependencies present in a syntactic parse
+ (Liang et al., 2013).
+ Each predicate maps to one or more representations encoded in memory, and
+ each relation between predicates maps to a link between the corresponding
+ representations that is also encoded in memory.
+ To explain further with an example, one branch of a DCS tree might contain
+ two unary predicates (e.g.
+ ‘person’ and ‘president’) connected by a single relation (e.g.
+ ‘join’).
+ This branch can be thought of as specifying a partial constraint on memory
+ retrieval that favors a representation of a single entity that is both
+ a person and a president (the join relation indicates a requirement that
+ ‘person’ and ‘president’ apply to the same thing).
+ A complete tree, in turn, specifies a collection of additional constraints
+ that fully determine the outcome of the memory retrieval process.
+ The benefits of using this DCS-based representation scheme are that it
+ (a) offers an integrated account of syntax and semantics (i.e.
+ syntactic and semantic processes interact to mutually determine the model’s
+ parsing behavior), and that it (b) allows for a relatively simple encoding
+ using distributed representations.s
+\end_layout
+
+\end_body
+\end_document
