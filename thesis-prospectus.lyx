@@ -92,20 +92,19 @@ This thesis is concerned with the problem of ascribing meanings to expressions
  and behavioral effects of its use.
  This empirically-oriented approach to semantics gives rise to a number
  of theoretical desiderata that I outline in Chapter 1.
- In Chapter 2, I argue that these desiderata constrain the space of potential
- semantic theories to include only those that make representational contents
- dependent on the functional roles of representational vehicles.
- Chapter 3 offers a reconsideration of the principle of compositionality,
- a basic theoretical assumption in both cognitive science and linguistics
- that is widely assumed to be inconsistent with any account of semantics
- that appeals to functional roles.
+ In Chapter 2, I evaluate a number of contemporary accounts of semantics
+ against these criteria.
+ I argue that these accounts have considerable trouble achieving both compositio
+nality and predictive adequacy with respect to linguist phenomena.
+ In Chapter 3, I set the theoretical ground work for a solution to this
+ problem by reconsidering the principle of compositionality in light of
+ the requirements imposed by my criteria.
  
 \end_layout
 
 \begin_layout Standard
-Part 2 of the thesis is concerned with providing a formal model of linguistic
+Chapter 4 of the thesis is concerned with providing a formal model of linguistic
  comprehension that satisfies the desiderata discussed in Part 1.
- First, I examine existing alternatives.
  I conclude that these alternatives are generally either compositional and
  inadequately functionalist, or functionalist and inadequately compositional.
  I go on to develop an account on which linguistic comprehension is modelled
@@ -286,7 +285,7 @@ ve theoretical demands.
  Put simply, allowing distinctions in meaning to correspond to obscure distincti
 ons in reality burdens semantic theory with a dependency on facts about
  the world that have no empirical consequences concerning language use.
- Morevoer, communal ignorance of such facts problematically translates into
+ Moreover, communal ignorance of such facts problematically translates into
  communal ignorance about the meanings of ordinary words and sentences.
 \end_layout
 
@@ -298,22 +297,19 @@ As a result of these considerations favoring the cognitive approach, I propose
 
 \begin_layout Enumerate
 The predictive adequacy criterion.
- (Behavior)
 \end_layout
 
 \begin_layout Enumerate
 The implementation criterion.
- (Cognition)
+ 
 \end_layout
 
 \begin_layout Enumerate
 The compositionality criterion.
- (Generalization)
 \end_layout
 
 \begin_layout Enumerate
 The scalabilty criterion.
- (Scope)
 \end_layout
 
 \begin_layout Standard
@@ -379,7 +375,7 @@ The second criterion is meant to capture the idea that predictions licensed
  Such evidence ought to prompt a revision to the proposed meaning attribution.
  Similarly, if there is more compelling evidence to suggest that the behavioral
  expectations in question actually obtain, then a revision to one's account
- of cognition ought to be considered.
+ of cognitive processing ought to be considered.
  Overall, the implementation criterion simply favors the development of
  theories of linguistic behavior and linguistic cognition that are consistent
  with one another.
@@ -398,8 +394,8 @@ As a brief technical aside, it can be useful to think of the implementation
  the values that can be decoded from the ensemble under various conditions.
  Likewise, the hypothesis also places constraints on the properties of the
  neurons in the ensemble.
- For instance, their tuning curves need to tile the latent vector space
- in a manner that permits computing the hypothesized function.
+ For instance, their tuning curves need to tile the vector space in a manner
+ that permits computing the hypothesized function.
  (These tuning curves are determined both by the intrinsic properties of
  the neurons and their incoming connection weights).
  Overall, just as evidence concerning function and implementation mutually
@@ -433,13 +429,13 @@ s.
 \end_layout
 
 \begin_layout Standard
-The scalability criterion gives preference to semantic theories that account
- for the meanings of large numbers of linguistic expressions.
- Of course, it is not particular controversial to say that scientific theories
+The scalability criterion, finally, gives preference to semantic theories
+ that account for the meanings of large numbers of linguistic expressions.
+ It is of course not particularly controversial to say that scientific theories
  with a broad range of empirical coverage are preferable to scientific theories
  with a smaller range of coverage.
  But when considered in tandem with the other criteria listed above, scalability
- concerns become more prominent.
+ concerns become pressing.
  For example, some approaches to semantics are able to achieve compositionality
  along with a certain degree of predictive adequacy, but only in highly
  restricted domains.
@@ -644,9 +640,9 @@ distributional
 \begin_layout Standard
 Distributional models of meaning have proven quite effective at accounting
  for a wide range of empirical data concerning word usage.
- For example, they have achieved success matching human data from studies
- of category typicality (e.g., Jones & Mewhort, 2007) and synonym identification
- (e.g., Landauer & Dumais, 1997).
+ They have achieved success matching human data from studies of category
+ typicality (e.g., Jones & Mewhort, 2007) and synonym identification (e.g.,
+ Landauer & Dumais, 1997).
  Good matches to human data on tasks involving stem-completion (Jones &
  Mewhort, 2007) and judgments of phrasal similarity (Mitchell & Lapata)
  have also been achieved.
@@ -655,7 +651,7 @@ Distributional models of meaning have proven quite effective at accounting
  And given that distibutional models involving tens of thousands of words
  generated from millions of documents have been developed, it is also clear
  that the approach can scale effectively.
- However, a major shortcoming of these model is that sentences and paragraphs
+ However, a major shortcoming of these models is that sentences and paragraphs
  are often treated as a 
 \begin_inset Quotes eld
 \end_inset
@@ -664,7 +660,7 @@ bag of words
 \begin_inset Quotes erd
 \end_inset
 
- that contains no synactic structure at all.
+ that contains no synactic structure.
  More generally, it has proven very difficult to generate compositional
  representations of phrases and sentences using the distributional approach.
  
@@ -687,11 +683,16 @@ However, it also true that a great deal of effort has been directed towards
  As such, more recent efforts to achieve compositionality have made use
  of either (a) recursively structured neural networks that function to merge
  distributed representations, or (b) tensor-based representations that can
- composed via operations analogous to function application of the sort character
-istic of work in traditional formal semantics.
+ composed via operations analogous to function application of the sort used
+ by formal semanticists.
  I briefly evaluate these approaches and argue that, while they are effective
  at solving specific kinds of problems, they do not provide general purpose
  representations of composite linguistic structures.
+ The properties of the representations in question are optimized to achieve
+ a very specific goal that is unrelated to most of the phenomena that a
+ meaning attribution for a complex expression ought to account for.
+ Put simply, compositionality is obtained in these models at the price of
+ predictive adequacy and scope.
  
 \end_layout
 
@@ -706,35 +707,58 @@ connectionist
 
  literature that makes use of artificial neural networks.
  I focus primarily on two bodies of work.
+ First, I discuss Rogers and McClelland's (2004, 2008) influential work
+ on 
+\begin_inset Quotes eld
+\end_inset
+
+semantic cognition
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Second, I discuss Smolensky's (2006, 2014) work on harmonic grammar and
+ the integration of symbolic and connectionist descriptions of linguistic
+ cognition.
  
 \end_layout
 
 \begin_layout Standard
-For example, I discuss Rogers and McClelland's (2004, 2008) influential
- model of semantic cognition and concept learning.
- This model has a considerable amount of predictive power, since it is able
- to account for a wide range of data concerning categorization, taxonomy
- induction, and lingustic inference.
+In the case of Rogers and McClelland's work, a relatively simple multi-layered
+ neural network is trained via backpropogation to associate abstract representat
+ions of perceptual inputs with abstract representations of the properties
+ that are characteristic of these inputs.
+ For example, a perceptual representation of BIRD would evoke representations
+ of numerous predictates that apply to birds, such as CAN_FLY and HAS_WINGS.
+ Importantly, the mapping performed by the network is mediated by learned,
+ distributed representations of each percept.
+ This use of distributed representations allows the model to generalize
+ the mappings it has learned to novel inputs.
+ For instance, a perceptual representation of a more specific type of bird
+ (e.g.
+ FALCON) would be associated with the same predicates as BIRD (i.e.
+ CAN_FLY and HAS_WINGS) due to similarity between the distributed representation
+s for these two concepts.
+ As Rogers & McClelland illustrate, this model has a considerable amount
+ of predictive power, since it is able to account for a wide range of data
+ concerning categorization, taxonomy induction, and lingustic inference.
  The model is also loosely consistent with implementational constraints
  provided by cognitive systems given that it makes use of neuron-like processing
  units.
- As such, the model does a reasonably good job of satsifying criteria (1)
- and (2).
- More importantly, its representational states are uncontroversially defined
- in terms of their relationships to one another.
- For instance, the model's hidden layer representations are defined via
- a learning algorithm to properly mediate between abstract representations
- of perceptual inputs and abstract representations of the properties that
- are characteristic of these inputs.
+ Given as much, the model does a reasonably good job of satsifying criteria
+ (1) and (2).
  But virtues aside, the model clearly fails to address the compositionality
  criterion: it provides no description of a mechanism for binding or conjoining
  representational states.
- I provide similar evaluations of connectionist models of parsing (Hale
- & Smolensky, 2006; Elman, 1990), pronunciation (Plaut et al., 1996), and
- more computationally-oriented tasks such as sentiment-analysis and knowledge
- base completion (Socher et al.
- 2012).
+ I briefly survey similar connectionist accounts of linguistic phenomena
+ (Elman, 1990, Plaut et al., 1996, Seidenberg, 1997) and draw the same conclusion
+s.
  
+\end_layout
+
+\begin_layout Standard
+Smolensky's work (1990, 2006), interestingly, presents a solution to the
+ compositionality challenge that 
 \end_layout
 
 \begin_layout Section*
@@ -1034,8 +1058,166 @@ hip between the meanings of simple and complex linguistic expressions.
 \end_layout
 
 \begin_layout Standard
-In this chapter, I take up the task of appropriately formulating the problem
- that models of linguistic phenomena are designed to solve.
+In this chapter, I take up the task of appropriately specifying the functions
+ being performed by a cognitive system that is in a particular representational
+ state.
+ My goal is to iteratively develop a framework that accounts for each of
+ the criteria introduced in Chapter 1 while also accommodating the insights
+ obtained in Chapters 2 and 3.
+ 
+\end_layout
+
+\begin_layout Standard
+I begin by framing the predictions associated with a particular meaning
+ attribution in terms of a set of expected question-answer pairs.
+ As argued in Chapter 1, it is helpful to operationalize one's understanding
+ of the meaning of the sentence in terms of the answers one would provide
+ to questions about it.
+ Question answering tasks are increasingly being used to benchmark semantic
+ theories (see, e.g.
+ Liang et al., 2013, Bordes et al., 2014, 2015; Socher et al, 2015), and can
+ be applied to a wide range of expression types.
+ For example, it is possible to assess whether one understands the meaning
+ of the word 
+\begin_inset Quotes eld
+\end_inset
+
+violin
+\begin_inset Quotes erd
+\end_inset
+
+ by checking to see if one is capable of correctly answering various questions
+ about violins.
+ Similarly, it is possible to assess whether one understands a multi-sentence
+ paragraph by checking to see if one is capable of of correctly answering
+ certain questions about the paragraph (e.g.
+ concerning who did what to whom).
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+As a point of clarification, I do not wish to argue that question answering
+ tasks provide an exhaustive test of linguistic understanding.
+ There might be good reasons to think that dispositions towards certain
+ non-linguistic behaviors are also required in order for one to exhibit
+ appropriate understanding.
+ For instance, it would be odd to say that one understands the meaning of
+ the word 
+\begin_inset Quotes eld
+\end_inset
+
+violin
+\begin_inset Quotes erd
+\end_inset
+
+ if one were unable to correctly identify violins or engage in certain violin-re
+lated behaviors (e.g.
+ retrieving violins, handling violins, etc.)
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+In more formal terms, the expectations associated with a meaning attribution
+ can be characterized in terms of a parameterizable function that maps input
+ linguistic expressions (e.g.
+ questions) to output linguistic expressions (e.g.
+ answers).
+ The parameters that determine the behavior of the function can include
+ prior linguistic input (i.e.
+ the sentence that is the target of the questions) and background knowledge
+ that is related to this prior input.
+ From a cognitive perspective, these parameters can broadly identified with
+ contents stored in short-term and long-term memory.
+ An abstract model that conforms to this description is shown in Figure
+ 1 below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/peterblouw/Desktop/functionspec.png
+	lyxscale 50
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A simplified model of linguistic comprehension.
+ When a word, sentence or story is provided as prior information to the
+ model, it is encoded as a structure in short-term memory.
+ This structure then retrieves a set of related structures from long-term
+ memory.
+ When a question is provided as input to the model, the structures previously
+ activated in memory configure the model to compute the appropriate function,
+ as indicated by the grey box around the depiction of function 
+\begin_inset Quotes eld
+\end_inset
+
+F2
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The result of this computation is an answer that is provided as the output
+ of the model.
+ For example, the description of a simple baseball playing scenario encoded
+ in memory would constrain the model to compute a function that maps the
+ question “What did the boy use to hit the ball?” onto the answer “A baseball
+ bat”.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In many respects, this abstract model is not particularly informative.
+ It treats the target of the meaning attribution (i.e.
+ a cognitive system) as a black box.
+ Nonetheless, it is useful exercise to use an initial specification of this
+ sort to help constrain further descriptions of the system's internals.
+ However, if one's only goal is to achieve predictive adequacy with respect
+ to verbal behavior, it would be sufficient to leave things at this abstract
+ level of analysis.
+ Many probabilistic models of cognition do just this (e.g.
+ Tenenbaum et al.
+ 2011).
+ However, these models have been criticized for their lack of attention
+ to implementation details (e.g.
+ Eliasmith, 2013), and for their commitment to a dubious competence-performance
+ distinction (e.g.
+ McClelland et al.
+ 201).
+ Overall, a function specification is merely a revisable starting point
+ in 
+\end_layout
+
+\begin_layout Standard
+Given these observations, I go on to describe a recent account of cognitive
+ architecture (Eliasmith, 2013) that is capable of implementing function
+ specifications.
  
 \end_layout
 
@@ -1055,40 +1237,14 @@ In this chapter, I take up the task of appropriately formulating the problem
 
 \begin_layout Section*
 7.
- Philosophical Reflections
+ Philosophical and Formal Reflections
 \end_layout
 
 \begin_layout Standard
-The goal of this chapter is to revisit some of the philosophical debates
- surrounding semantics in light of the results presented in the previous
- two chapters.
+The goal of this chapter is to revisit some of the well-known and longstanding
+ debates surrounding semantics in light of the results presented in the
+ previous two chapters.
  
-\end_layout
-
-\begin_layout Standard
-Next, I evaluate probabilistic models that describe linguistic representations
- as intuitive theories.
- Building on psychological research that emphasizes the importance of background
- knowledge on conceptual processing, these models describe processes that
- generate the observations predicted by a particular folk theory.
- For example, ...tug of war example...In some respects, these models are quite
- successful.
- They account for much of the existing data on knowledge effects, and they
- have produced a number of successful predictions.
- Moreover, the models are compositional in the sense that the generative
- processes giving rise to particular observations can be combined in a structure
-d manner to yield a more complicated generative process.
- Nonetheless, implementation and scalability issues tend pose problems for
- these models.
- With respect to implementation, the models simply have nothing to say;
- they are simply formal specifications of a set functions being computed
- by a cognitive system.
- With respect to scalability, there is no indication that models describing
- the behavior of proper sentences can be generated using these probabilistic
- methods.
- Existing work abstracts away from the complexity of linguistic expressions
- to focus on small numbers of independent words.
- I conclude from these observations that 
 \end_layout
 
 \end_body
