@@ -25,9 +25,10 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing onehalf
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -51,6 +52,8 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 3cm
+\rightmargin 3cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -88,105 +91,64 @@ This thesis is concerned with the problem of ascribing meanings to expressions
  concise ways of expressing predictive generalizations about cognitive and
  behavioral phenomena.
  To give an account of the meaning of a linguistic expression, I claim,
- is simply to give a set of probabilistic expectations concerning the cognitive
- and behavioral effects of its use.
+ is simply to give a set of expectations concerning the cognitive and behavioral
+ effects of its use.
  This empirically-oriented approach to semantics gives rise to a number
- of theoretical desiderata that I outline in Chapter 1.
- In Chapter 2, I evaluate a number of contemporary accounts of semantics
- against these criteria.
- I argue that these accounts have considerable trouble achieving both compositio
-nality and predictive adequacy with respect to linguist phenomena.
- In Chapter 3, I set the theoretical ground work for a solution to this
- problem by reconsidering the principle of compositionality in light of
- the requirements imposed by my criteria.
+ of theoretical criteria that I outline in Chapter 1.
+ In Chapter 2, I use these criteria to evaluate a number of contemporary
+ semantic theories.
+ I argue that the most common problem facing these theories is that they
+ are unable to explain how the meanings of simple and complex linguistic
+ expressions are related to one another in a predictively adequate way.
+ To help solve this problem, Chapter 3 reinterprets the principle of composition
+ality as a claim about the generalization of linguistic abilities rather
+ than as a claim about the properties of linguistic representations.
  
 \end_layout
 
 \begin_layout Standard
-Chapter 4 of the thesis is concerned with providing a formal model of linguistic
- comprehension that satisfies the desiderata discussed in Part 1.
- I conclude that these alternatives are generally either compositional and
- inadequately functionalist, or functionalist and inadequately compositional.
- I go on to develop an account on which linguistic comprehension is modelled
- as a sequence of cognitive processes initiated by the perception of a sequence
- of linguistic expressions.
- The perception of a word, for instance, initiates a procedure that puts
- a cognitive system into a state that licenses the syntactic and semantic
- functions of the word.
- As further word perceptions initiate further procedures of this sort, the
- system's resulting state can be characterized as a 
-\begin_inset Quotes eld
+With the stage set for a new approach, I use Chapter 4 to develop a formal
+ framework for describing the meanings of linguistic expressions.
+ This framework describes such phenomena both in terms of abstract input-output
+ functions computed by a cognitive system, and in terms of processes within
+ the system that serve to implement these computations.
+ Specifically, I argue that attributing linguistic comprehension to a cognitive
+ system is roughly tantamount to hypothesizing that the system satisfies
+ a particular functional description.
+ By decomposing this functional description in manner consistent with a
+ recent account of cognitive architecture, I illustrate how to analyze linguisti
+c phenomena across multiple levels of abstraction.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+A caveat is that I largely avoid any discussion of the important and highly
+ complex social aspects of linguistic phenomena in this thesis.
+\end_layout
+
 \end_inset
 
-mental model
-\begin_inset Quotes erd
-\end_inset
-
- that satisifies the functional specification (i.e.
- the predictions) associated with a particular semantic attribution for
- a phrase or sentence.
- Chapter 5 describes a method for generating of this mental model from linguisti
-c input using a hierarchical constraint satisfaction procedure.
- Each word in the input stream favors or penalizes the inclusion or particular
- structural components in the resulting model.
- At lower levels in the hierarchy, the structural components in questions
- correspond to collections of the kinds of semantic and syntactic features
- typically found in contemporary linguistic theory; at higher levels in
- the hierarchy, the structural components correspond to collections of compresse
-d approximations of lower-level components.
- The resulting model can be described as a 
-\begin_inset Quotes eld
-\end_inset
-
-shallow
-\begin_inset Quotes erd
-\end_inset
-
- semantic parse that captures abstract information concerning 
-\begin_inset Quotes eld
-\end_inset
-
-who did what to whom
-\begin_inset Quotes erd
-\end_inset
-
- (to use a common phrase).
- 
+ In Chapter 5, I put this analysis to the test by developing a cognitive
+ model of question answering that is designed exhibit a rudimentary form
+ of linguistic comprehension.
+ The key feature of the model is that it 
 \end_layout
 
 \begin_layout Standard
-Mathematically, each structural component can be characterized as a high-dimensi
-onal vector, and the constraints defined on these components can be characterize
-d as scalar-valued functions on the underling vector space.
- (Psychologically, it is possible to think of these structural components
- as representations retrieved from long-term memory in service of the generation
- of a contextually appropriate representation in short-term memory.) Finally,
- I illustrate how the constraints in the model can learned via standard
- optimization methods.
- The result of this learning procedure is a parameterization of the model
- that allows a linguistic input to be translated into a structure that possess
- the functional dispositions that constitute its meaning.
- These functional dispositions are assessed through simple question-answering
- tasks that require the model to appropriately respond to queries concerning
- a single sentence or paragraph.
- 
-\end_layout
-
-\begin_layout Standard
-Part 3 of the thesis is concerned with practical applications and theoretical
- reflections.
- First, I apply the model to a standard question-answering data set.
- I aim to achieve near state-of-the-performance on this dataset in comparison
- to the other methods discussed in Part 1.
- In the remainder of the thesis, I compare and contrast the formal and philosoph
-ical details of my work with the alternatives available in the literature.
- Specifically, I endeaver to show that while the formal details of my approach
- can be given equivalent probabilistic and control-theoretic interpretations.
- On a more philosophical front, I illustrate how my work is both consistent
- with standard descriptions of inferentialist semantic theories and resistant
- to the criticisms typically lodged against these theories.
- I conclude, finally, with a brief discussion of future directions for this
- research.
+The remainder of the thesis is concerned with performing empirical and theoretic
+al evaluations of my work.
+ In Chapter 6, I test the model on some widely used question-answering datasets
+ and compare its performance to a number alternatives developed in the machine
+ learning community.
+ In Chapter 7, I discuss a number of outstanding philosophical and formal
+ issues.
+ Specifically, I illustrate how my framework is both consistent with standard
+ descriptions of inferentialist semantic theories and resistant to the criticism
+s typically lodged against these theories.
+ I also illustrate how the framework is consistent with different mathematical
+ interpretations (e.g.
+ probabilistic, control-theoretic, etc.).
+ I conclude, finally, with a brief discussion of directions for future research.
  
 \end_layout
 
@@ -218,11 +180,11 @@ There seems to be no shortage of things for meanings to do.
  to satisfy these job descriptions, but to relatively little avail.
  In practice, more or less distinct theories have been developed to achieve
  more or less distinct goals.
- For instance, theories in formal semantics are designed to account for
- truth and reference, but not for linguistic behavior.
+ For example, theories in formal semantics are designed to account for truth
+ and reference, but not for linguistic behavior.
  Theories in pragmatics and psychology, by comparison, are designed to do
  roughly the opposite.
- As such, there appear to be two largely independent notions of meaning
+ As such, there appears to be two largely independent notions of meaning
  at play in the philosophical literature: the first notion - call it 
 \begin_inset Quotes eld
 \end_inset
@@ -242,21 +204,6 @@ cognitive semantics
 
  - is concerned with explaining how people comprehend and produce linguistic
  expressions.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-The tension between these two notions of meaning is well known.
- The related problems of integrating (formal) semantics with pragmatics
- and accounting for the apparent context-dependency of meaning can both
- be characterized as stemming from the differing goals of metaphysical and
- cognitive approaches to semantics.
- Moreover, researchers often explicitly argue that either metaphysical semantics
-\end_layout
-
-\end_inset
-
- 
 \end_layout
 
 \begin_layout Standard
@@ -386,10 +333,10 @@ status collapsed
 As a brief technical aside, it can be useful to think of the implementation
  criterion through analogy to the Neural Engineering Framework (NEF).
  Models built using the NEF typically assume that neural populations are
- responsible for computing functions on a latent vector space through their
- neural activities.
- Hypothesizing that a particular neural ensemble computes a particular function
- is highly analogous to making a meaning attribution.
+ responsible for computing transformations on an implicit vector space through
+ their neural activities.
+ Hypothesizing that a particular neural ensemble computes a particular transform
+ation is highly analogous to making a meaning attribution.
  To explain, the hypothesis generates a large number of predictions concerning
  the values that can be decoded from the ensemble under various conditions.
  Likewise, the hypothesis also places constraints on the properties of the
@@ -403,6 +350,24 @@ As a brief technical aside, it can be useful to think of the implementation
  so too do they constraint one another in the development of semantic theories.
  This all should come as no surprise given the representational considerations
  that underlie the NEF.
+ To explain, treating the vector that characterizes a neural population's
+ state as a 
+\begin_inset Quotes eld
+\end_inset
+
+representation
+\begin_inset Quotes erd
+\end_inset
+
+ only makes sense in the presence of futher assumptions about the system
+ in which that population resides.
+ Namely, assumptions need to be made about the other groups of neurons to
+ which this population is connected, and about relations between the behaviors
+ of these neurons and certain external events (e.g.
+ the presence or absence of a particular kind of stimulus).
+ Content attributions, put simply, go hand-in-hand with expectations about
+ how a system functions, regardless of whether the system is a simple population
+ of neurons or an entire brain.
  
 \end_layout
 
@@ -467,7 +432,9 @@ do
 are
 \shape default
  the same.
- If this amounts to an instrumentalist view, then so be it.
+ Overall, as a point of methodological principle, it is simply unwise to
+ burden a theory with empirically superfluous material.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -477,8 +444,8 @@ The second objection claims that the cognitive approach entails a form of
  Words do mean different things to different people, because usage of a
  given word can sustain different predictive generalizations in different
  individuals and different social groups.
- However, the fact language use is a social practice militates against widesprea
-d relativism.
+ However, the fact that language use is a social practice militates against
+ widespread relativism.
  People communicate to achieve practical goals, and achieving these such
  goals requires that people be able to make good predictions in relation
  to the usage of particular linguistic expressions; hence, people converge
@@ -488,11 +455,10 @@ d relativism.
 \end_layout
 
 \begin_layout Standard
-In summary, the main purpose of this chapter is to set the stage for the
- development of an approach to semantics that is both philosophically robust
- and integrated with the broader research goals of cognitive science.
- In the next chapter, I evaluate a number of existing methods in the literature
- to see how well they fare against my criteria.
+In conclusion, the main purpose of this chapter is to set the stage for
+ the development of an approach to semantics that is both philosophically
+ robust and integrated with the broader research goals of cognitive science.
+ 
 \end_layout
 
 \begin_layout Section*
@@ -501,44 +467,52 @@ In summary, the main purpose of this chapter is to set the stage for the
 \end_layout
 
 \begin_layout Quote
-If you take care of the syntax of a representational system, its semantics
- will take care of itself.
- - Haugeland 
+We aren’t happy about semantics.
+ - Jerry Fodor and Ernest Lepore, 2012
 \end_layout
 
 \begin_layout Standard
-In this chapter, I survey a number of existing approaches to modeling linguistic
- phenomena and evaluate how well they fare in light of the criteria introduced
- in Part 1.
- I highlight the strengths and weaknesses of each approach and provide a
- brief summary of open problems that need to be solved in order to achieve
+In what follows, I survey a number of existing approaches to describing
+ the meanings of natural language expressions.
+ I highlight the strengths and weaknesses of these approaches and provide
+ a brief summary of open problems that need to be solved in order to achieve
  progress.
- 
 \end_layout
 
 \begin_layout Standard
 The analysis proceeds in three stages.
  First, I evaluate contemporary work in formal semantics.
- Inspired by developments in mathematical logic, this work typically assumes
- that natural languages can be given model-theoretic interpretations of
- the kind given to formal languages.
- A model, to explain, maps each term in a language to an object in a mathematica
-l structure.
- For example, a model of a first-order language would consist of a domain
- of individuals (a “universe of discourse”), a domain of truth values, and
- an interpretation function that maps each term in the language to either
- an individual in the domain, an n-ary function, or an n-ary relation (Goldfarb,
- 2003; Carpenter, 1997).
- Once an interpretation of the language is fixed in this way, truth values
- are generated for all sentences formed using the standard logical connectives
- and quantifiers.
- Moreover, each sentence in the language can be understood in terms of the
- set of intepretations that make it true: for a particular sentence S, each
- interpretation of S that makes S true is considered to be a model of S
- (Hodges, 2013).
- Thus, the set of models of S specifies the truth-conditions for S, and
- for any particular model, S will be either true or false.
- 
+ This work stems largely from Montague's (1970) pioneering insight that
+ model-theoretic intepretations of the sort applied to formal languages
+ can also be applied to natural languages (cf.
+ Partee, 1980).
+ To explain, a model-theoretic interpretation defines a mapping between
+ a set of linguistic expressions and a set of mathematical objects.
+ In the case of a first order language, the objects in question are drawn
+ from sets of individuals and truth values, along with functions and relations
+ defined on these sets (Goldfarb, 2003; Carpenter, 1997).
+ Once each simple linguistic term is interpreted in this way, a truth value
+ is assigned every sentence in the language.
+ According to most formal semanticists, the meaning of sentence is captured
+ by the class of interpretations that make it true (or, equivalently, the
+ class of models that satisfy the sentence).
+ It is for this reason that 
+\begin_inset Quotes eld
+\end_inset
+
+truth-conditional semantics
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+formal semantics
+\begin_inset Quotes erd
+\end_inset
+
+ are largely synonymous terms.
 \end_layout
 
 \begin_layout Standard
@@ -549,8 +523,8 @@ To their credit, formal semanticists have produced influential analyses
  of the criteria introduced in Chapter 1.
  Most importantly, denotational theories typically have little predictive
  adequacy.
- They are simply not designed to account for the social and psychological
- aspects of language use.
+ They are simply not designed to account for the cognitive and behavioral
+ aspects of language use (Jackendoff, 2004; Partee, 1980).
  To illustrate with an example, a standard denotation to give the word 
 \begin_inset Quotes eld
 \end_inset
@@ -601,7 +575,7 @@ logical forms
  Overall, I conclude from this evaluation that formal semantics has certain
  strengths that can inform the development of any adequate theory.
  It does very well with respect to compositionality, and recent efforts
- have shown great promise with respect to scalability.
+ have shown promise with respect to scalability.
  The weaknesses, on the other hand, are still somewhat prohibitive.
  Predictive adequacy and implementational plausibility exist only in the
  realm of speculation.
@@ -618,23 +592,23 @@ distributional
 \end_inset
 
  models of meaning.
- These models take as their point of departure the idea that the meaning
- of a word is captured by the contexts in which it occurs (Landauer & Dumais,
- 1997; Grefenstetet, 2013).
- In practice, the models are generated by collecting frequency counts for
- word occurrences across a wide range of linguistic contexts (e.g., a collection
- of documents or paragraphs), and then using these frequency counts to form
- vectors that reflect the frequency profile of each word (Clark, 2014; Turney
- and Pantel, 2010).
+ Motivated by the idea that a word's meaning can be captured by 
+\begin_inset Quotes eld
+\end_inset
+
+the company it keeps
+\begin_inset Quotes erd
+\end_inset
+
+ (Firth qtd.
+ in Grefenstette, 2013), these models are typically generated by encoding
+ word co-occurence information from text corpora into a high-dimensional
+ vector space (Clark, 2014; Turney & Pantel, 2010; Landauer & Dumais, 1997).
  The vectors that result from this process possess geometric relationships
- that correspond to semantic relationships of various kinds.
+ that capture semantic relationships of various kinds.
  For instance, the vectors for words associated with a particular abstract
  category (e.g.
  sports, food, animals, etc.) will tend to cluster together.
- This semantically informed clustering allows one retrieve words semantically
- related to a target word through a ranking of similarities between the
- underlying vectors.
- 
 \end_layout
 
 \begin_layout Standard
@@ -644,8 +618,8 @@ Distributional models of meaning have proven quite effective at accounting
  typicality (e.g., Jones & Mewhort, 2007) and synonym identification (e.g.,
  Landauer & Dumais, 1997).
  Good matches to human data on tasks involving stem-completion (Jones &
- Mewhort, 2007) and judgments of phrasal similarity (Mitchell & Lapata)
- have also been achieved.
+ Mewhort, 2007) and judgments of phrasal similarity (Mitchell & Lapata,
+ 2010) have also been achieved.
  Given these matches, it is clear that the distributional approach does
  reasonably well at satisfying the predictive adequacy criterion.
  And given that distibutional models involving tens of thousands of words
@@ -660,7 +634,7 @@ bag of words
 \begin_inset Quotes erd
 \end_inset
 
- that contains no synactic structure.
+ with no synactic structure.
  More generally, it has proven very difficult to generate compositional
  representations of phrases and sentences using the distributional approach.
  
@@ -668,23 +642,55 @@ bag of words
 
 \begin_layout Standard
 However, it also true that a great deal of effort has been directed towards
- developing techniques for combining distributed representations into complex
- structures.
- Early examples of these techniques include Smolenksy’s (1990) tensor products,
- Kanerva’s (1994) binary spatter codes, and Plate’s (2003) holographic reduced
- representations.
- In each case, a mathematical operation is used to combine two vectors in
- way that allows each constituent vector to later be recovered in either
- exact or approximate form.
- One problem with these techniques is that they arguably group representations
- together rather then compose them (i.e.
- binding imposes syntactic structure in the absence of a correspondingly
- appropriate semantic structure).
- As such, more recent efforts to achieve compositionality have made use
- of either (a) recursively structured neural networks that function to merge
- distributed representations, or (b) tensor-based representations that can
- composed via operations analogous to function application of the sort used
- by formal semanticists.
+ incorporating compostionality into these models.
+ For instance, there is a long history of using 
+\begin_inset Quotes eld
+\end_inset
+
+binding
+\begin_inset Quotes erd
+\end_inset
+
+ methods to combine distributed representations of distinct words or concepts.
+ Smolenksy’s (1990) tensor products, Plate’s (2003) holographic reduced
+ representations, and Sahlgren et al's (2010) randomly permuted vectors
+ are perhaps the most well-known techniques of this kind.
+ However, there is a growing consensus that these methods do not compose
+ representations in a predictively adequate way.
+ The key problem is that simply joining two representations together does
+ not always yield an appropriate compound representation.
+ For example, binding a representation for the word 
+\begin_inset Quotes eld
+\end_inset
+
+tall
+\begin_inset Quotes erd
+\end_inset
+
+ to a representation for the word 
+\begin_inset Quotes eld
+\end_inset
+
+tree
+\begin_inset Quotes erd
+\end_inset
+
+ does not create a compound representation that accurately characterizes
+ tall trees.
+ Rather, the compound representation is only interpretable in terms of the
+ fact that it can be used to recover each of its constituent parts.
+ Binding, overall, is a syntactic operation that lacks an appropriate semantic
+ counterpart.
+\end_layout
+
+\begin_layout Standard
+In light of this problem, more recent efforts to achieve compositionality
+ have made use of either (a) structured neural networks that function to
+ merge distributed representations (e.g.
+ Weston et al., 2014; 2015, Socher et al., 2012), or (b) tensor-based representati
+ons that can composed via operations analogous to the sort used by formal
+ semanticists (e.g.
+ Grefenstette, 2013; Clark, 2014).
  I briefly evaluate these approaches and argue that, while they are effective
  at solving specific kinds of problems, they do not provide general purpose
  representations of composite linguistic structures.
@@ -705,7 +711,8 @@ connectionist
 \begin_inset Quotes erd
 \end_inset
 
- literature that makes use of artificial neural networks.
+ literature that more focused on uncovering the principles underlying linguistic
+ cognition than on practical linguistic applications.
  I focus primarily on two bodies of work.
  First, I discuss Rogers and McClelland's (2004, 2008) influential work
  on 
@@ -718,8 +725,8 @@ semantic cognition
 
 .
  Second, I discuss Smolensky's (2006, 2014) work on harmonic grammar and
- the integration of symbolic and connectionist descriptions of linguistic
- cognition.
+ the integration of symbolic and connectionist descriptions of cognitive
+ architecture.
  
 \end_layout
 
@@ -748,8 +755,8 @@ s for these two concepts.
  Given as much, the model does a reasonably good job of satsifying criteria
  (1) and (2).
  But virtues aside, the model clearly fails to address the compositionality
- criterion: it provides no description of a mechanism for binding or conjoining
- representational states.
+ criterion: it provides no description of a mechanism for composing representati
+onal states.
  I briefly survey similar connectionist accounts of linguistic phenomena
  (Elman, 1990, Plaut et al., 1996, Seidenberg, 1997) and draw the same conclusion
 s.
@@ -757,8 +764,27 @@ s.
 \end_layout
 
 \begin_layout Standard
-Smolensky's work (1990, 2006), interestingly, presents a solution to the
- compositionality challenge that 
+Smolensky's work (1990, 2006) makes use of the previously mentioned binding
+ methods to incorporate structured representations into networks similar
+ to those used by Rogers and McClelland.
+ A key novelty of this approach is that 
+\end_layout
+
+\begin_layout Standard
+Overall, I argue that this survey illustrates the existence of a persistent
+ tradeoff in semantic theorizing: it is possible to satisfy either the predictiv
+e adequacy criterion (e.g.
+ using distributional models) or the compositionality criterion (e.g.
+ using formal semantics), but it is very difficult to satisfy both at the
+ same time.
+ Put simply, compositional models are generally not predictively adequate,
+ and predictively adequate models are generally not compositional.
+ Difficulties achieving scope and implementational plausibility also tend
+ to co-occur with success at achieving compositionality, as a quick comparison
+ of distributional and formal approaches to semantics illustrates.
+ In conclude from this that properly accounting for compositionality is
+ the key challenge facing research on natural language semantics.
+ 
 \end_layout
 
 \begin_layout Section*
@@ -767,9 +793,8 @@ Smolensky's work (1990, 2006), interestingly, presents a solution to the
 \end_layout
 
 \begin_layout Quote
-It is enough if the sentence as whole has meaning; thereby also its parts
- obtain their meanings - Frege, qtd.
- in Szabo, 2012
+You can’t cram the meaning of a whole %&!$# sentence into a single $&!#*
+ vector! - Ray Mooney, 2014
 \end_layout
 
 \begin_layout Standard
@@ -1068,8 +1093,8 @@ In this chapter, I take up the task of appropriately specifying the functions
 \end_layout
 
 \begin_layout Standard
-I begin by framing the predictions associated with a particular meaning
- attribution in terms of a set of expected question-answer pairs.
+I begin by framing the predictions associated with a particular linguistic
+ content attribution in terms of a set of expected question-answer pairs.
  As argued in Chapter 1, it is helpful to operationalize one's understanding
  of the meaning of the sentence in terms of the answers one would provide
  to questions about it.
@@ -1112,7 +1137,8 @@ violin
 
  if one were unable to correctly identify violins or engage in certain violin-re
 lated behaviors (e.g.
- retrieving violins, handling violins, etc.)
+ retrieving violins, handling violins, etc.).
+ 
 \end_layout
 
 \end_inset
@@ -1130,23 +1156,23 @@ In more formal terms, the expectations associated with a meaning attribution
  prior linguistic input (i.e.
  the sentence that is the target of the questions) and background knowledge
  that is related to this prior input.
- From a cognitive perspective, these parameters can broadly identified with
- contents stored in short-term and long-term memory.
+ From a cognitive perspective, the values of these parameters can be roughly
+ identified with contents stored in short-term and long-term memory.
  An abstract model that conforms to this description is shown in Figure
- 1 below.
+ 1.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename /Users/peterblouw/Desktop/functionspec.png
-	lyxscale 50
+	lyxscale 40
 	scale 60
 
 \end_inset
@@ -1169,7 +1195,16 @@ A simplified model of linguistic comprehension.
 \begin_inset Quotes eld
 \end_inset
 
-F2
+F
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+
 \begin_inset Quotes erd
 \end_inset
 
@@ -1194,31 +1229,123 @@ F2
 
 \begin_layout Standard
 In many respects, this abstract model is not particularly informative.
- It treats the target of the meaning attribution (i.e.
+ It treats the target of the content attribution (i.e.
  a cognitive system) as a black box.
- Nonetheless, it is useful exercise to use an initial specification of this
+ Nonetheless, it is a good exercise to use an initial specification of this
  sort to help constrain further descriptions of the system's internals.
  However, if one's only goal is to achieve predictive adequacy with respect
- to verbal behavior, it would be sufficient to leave things at this abstract
+ to verbal behavior, it might be sufficient to leave things at this abstract
  level of analysis.
- Many probabilistic models of cognition do just this (e.g.
+ Many probabilistic models of cognition do just this by defining statistical
+ processes that bring about some observed behavior (e.g.
  Tenenbaum et al.
  2011).
  However, these models have been criticized for their lack of attention
  to implementation details (e.g.
  Eliasmith, 2013), and for their commitment to a dubious competence-performance
- distinction (e.g.
+ distinction in the analysis of cognitive phenomena (e.g.
  McClelland et al.
- 201).
- Overall, a function specification is merely a revisable starting point
- in 
+ 2010).
+ Overall, function specifications defined at what is sometimes referred
+ to as the 
+\begin_inset Quotes eld
+\end_inset
+
+computational level
+\begin_inset Quotes erd
+\end_inset
+
+ of analysis are revisable starting points, not complete models.
+ 
 \end_layout
 
 \begin_layout Standard
-Given these observations, I go on to describe a recent account of cognitive
- architecture (Eliasmith, 2013) that is capable of implementing function
- specifications.
+Given these observations, I describe a recently developed cognitive architecture
+ (Eliasmith, 2013) that, with a few adjustments, is capable of implementing
+ the functions associated with sophisticated forms of linguistic cognition.
+ The architecture in question, the SPA, makes use of a class of representations
+ called semantic pointers that encode compressed approximations of symbol
+ structures while exhibiting appropriate relationships towards a wide variety
+ of perceptual and motor states.
  
+\end_layout
+
+\begin_layout Standard
+The main reason for choosing the SPA is that it satisfies a number of implementa
+tional constraints found in cognitive systems.
+ For example, Christiansen and Chater (in press) emphasize the existence
+ of a pervasive 
+\begin_inset Quotes eld
+\end_inset
+
+now-or-never
+\begin_inset Quotes erd
+\end_inset
+
+ bottleneck during both the comprehension and production of linguistic expressio
+ns.
+ On the comprehension side, the bottleneck arises due to limits on the capacity
+ of working memory.
+ These limits require that linguistic inputs be continually compressed and
+ recoded in abstract form to make room for further items in the input stream.
+ Absent such instantaneous compression, there would be no way for a comprehender
+ to keep up with the ongoing barrage of words that is typical of most linguistic
+ exchanges.
+ Similar remarks apply in the case of the linguistic production.
+ Speakers simply do not have the memory capacity to plan out ahead of time
+ all of the actions associated with producing a typical sentence.
+ Rather, small sub-plans are executed iteratively to bring about the production
+ of the sentence.
+ Notably, compression and control are hallmarks of SPA, so it stands to
+ reason that the SPA can accommodate these memory and action based constraints
+ associated with the 
+\begin_inset Quotes eld
+\end_inset
+
+now-or-never
+\begin_inset Quotes erd
+\end_inset
+
+ bottleneck.
+ 
+\end_layout
+
+\begin_layout Standard
+Another way in which the SPA satisfies the implementation criterion is by
+ decomposing abstract behavioral functions into processes involving cognitively
+ and neurally plausible mechanisms.
+ These mechanisms involve components that encode syntactic structure, store
+ information over time, control behavior, and exhibit adaptation, amongst
+ other things.
+ To illustrate, it is useful to think of the Spaun model (Eliasmith et al,
+ 2012) as a system that satisfies certain a functional specification involving
+ simple numerical representations
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+It would not be inaccurate to say that the model understands the numbers
+ 1 through 9 in the sense outline in Chapter 1.
+ Spaun answers questions about these numbers accurately, and is generally
+ able to behave as a human would with respect to a certain set of number-related
+ tasks.
+\end_layout
+
+\end_inset
+
+ using a neurallly plausible implementation.
+ Spaun, in short, is a powerful demonstration of how the SPA can act as
+ a bridge between descriptions of behavioral functions and the realization
+ of these functions in a human brain.
+ More importantly, the SPA is general enough to act as such a bridge for
+ behaviors involving natural language expressions rather than simple numbers.
+ Figure 2 describes Spaun-like model that could exhibit such linguistic
+ behaviors.
+ 
+\end_layout
+
+\begin_layout Standard
+The key outstanding questions 
 \end_layout
 
 \begin_layout Section*
@@ -1226,25 +1353,460 @@ Given these observations, I go on to describe a recent account of cognitive
  The IRS Model of Linguistic Comprehension
 \end_layout
 
-\begin_layout Standard
-- add parameterization procedure
-\end_layout
-
 \begin_layout Section*
 6.
  Applications to Question-Answering Tasks
 \end_layout
 
-\begin_layout Section*
-7.
- Philosophical and Formal Reflections
+\begin_layout Standard
+To benchmark the IRS model, I propose to test its performance on existing
+ question-answering datasets that include a wide range of question types.
+ This benchmarking procedure has three stages.
+ In the first stage, the model is tested on a recently released bAbl dataset
+ of question-answer pairs designed to test for a range of abilities that
+ are arguably prerequisites for linguistic understanding (Weston et al.,
+ 2015).
+ For example, some questions require an agent or model to extract relevant
+ information from a set of supporting facts (e.g.
+ a sentence or short paragraph).
+ Other questions require the use of numerical reasoning and the ability
+ to respond to negations appropriately.
+ That said, many of the bAbl questions are comparatively simple, requiring
+ only sensitivity to structural information concerning different parts of
+ speech in a supporting sentence.
+ As such, this dataset is used as preliminary test for IRS model's linguistic
+ comprehension abilities.
+ Example question-answer pairs are shown in Table 1.
 \end_layout
 
 \begin_layout Standard
-The goal of this chapter is to revisit some of the well-known and longstanding
- debates surrounding semantics in light of the results presented in the
- previous two chapters.
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dataset
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Background Information
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Question 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Answer
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bAbl
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+The office is north of the kitchen.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+What is north of the kitchen?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The office.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bAbl
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+“Yann is hungry.”
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Where will Yann go?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The kitchen.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Winograd
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+The trophy would not fit in the suitcase because it was too big/[small].
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+What was too big?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The trophy.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Winograd
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+Joan made sure to thank Susan for all the help she had received/[given].
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Who received the help?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Joan.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Novel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+“John is eating soup at the restaurant”
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+What did John use to eat the soup?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A spoon.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Novel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+“John is eating soup at the restaurant”
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Did John prepare the soup?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example questions and answers for each proposed benchmarking dataset.
+ The bAbl dataset is described in Weston et al.
+ (2015).
+ The Winograd Schema dataset is described in ?? (2013).
+ The final, novel dataset will developed using human annotators on a platform
+ such as Mechanical Turk.
  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Provided that this preliminary test is successful, the next stage of the
+ benchmarking process involves testing the model on a class of questions
+ that require the use of more complex forms of background knowledge.
+ Specifically, a model or agent must use such knowledge to correctly identify
+ the referent of an ambiguous pronoun in a sentence that matches a set of
+ conditions inspired by seminal work on natural language processing by Terry
+ Winograd (see Levesque, 2011).
+ These conditions are as follows: the sentence must contain two noun phrases
+ describing unique entities, a single pronoun that refers to one of these
+ two entities, and a single word that can swapped with an alternative word
+ to change the referent of the pronoun.
+ Achieving good performance on this dataset is widely viewed to 
+\end_layout
+
+\begin_layout Standard
+The final stage of benchmarking involves using questions that extend beyond
+ pronoun resolution while still requiring considerable background knowledge.
+ For example, the last two rows in Table 1 describe questions about a scenario
+ in which person eats soup at a restaurant.
+ Correctly answering these questions requires knowing that soup is liquid
+ (and therefore must be eaten with a spoon) and that restaurants have staff
+ that prepare meals (therefore implying that a patron would not prepare
+ the soup).
+ It will likely be necessary to be generate a new dataset for this portion
+ of the project, given that there is fairly little prior work focused on
+ tackling the problem of selecting background knowledge that is relevant
+ to answering a particular question.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Most well known question-answering datasets are focused on factual questions
+ such as 
+\begin_inset Quotes eld
+\end_inset
+
+Who is Barack Obama's mother?
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Performing well on these datasets arguably has more to do with translating
+ a question into an appropriate database query than with exploiting background
+ knowledge in a contextually appropriate way.
+ 
+\end_layout
+
+\end_inset
+
+ To compensate for this lack of prior work and to assess the model’s performance
+ on tasks of interest, I will generate a small dataset of question and answer
+ pairs that require the sophisticated use of background knowledge.
+ To keep the project tractable, this dataset will only include domain-specific
+ questions (e.g.
+ perhaps concerning meal-time activities and food) with a restricted degree
+ of syntactic complexity.
+ The point of these benchmarks is to make progress towards understanding
+ how cognitive systems are able to flexibly and automatically determine
+ which pieces of knowledge need to be applied in order to correctly answer
+ a given question.
+ 
+\end_layout
+
+\begin_layout Standard
+My overall evaluation of the IRS model will include performance comparisons
+ to a number of baseline and alternative methods for performing question
+ answering.
+ Possible competing models include Weston et al's (2015) memory networks,
+ a standard recurrent network for sequence prediction (e.g.
+ Elman, 1990), and a semantic parser of the sort described in Liang et al.
+ (2013).
+ Having hopefully shown that the IRS model's performance on these datasets
+ offers a strong empirical case in favor of satisfying the criteria outlined
+ in Chapter 1, I go on to conclude with some final philosophical remarks.
+ 
+\end_layout
+
+\begin_layout Section*
+7.
+ Philosophical and Technical Reflections
+\end_layout
+
+\begin_layout Standard
+The concluding chapter of the thesis is concerned with revisiting a number
+ of philosophical and technical debates concerning semantics in light of
+ the results described in the previous chapters.
+ On the philosophical front, there are two key features of my framework
+ that are open to criticism.
+ First, my account is committed to a version of inferential role semantics,
+ and philosophers have raised a number of well-known
+\end_layout
+
+\begin_layout Section*
+Conclusion
 \end_layout
 
 \end_body
