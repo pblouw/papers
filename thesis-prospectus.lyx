@@ -3,6 +3,9 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\usepackage[hang,flushmargin]{footmisc} 
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -83,8 +86,8 @@ Introduction
 This thesis is concerned with the problem of ascribing meanings to expressions
  in a natural language.
  Traditionally, philosophers have attempted to solve this problem by proposing
- views on which a meaning is a particular kind of entity (e.g.
- a proposition, a referent, a mental state etc.).
+ views on which meanings are particular kinds of entities, such as propositions,
+ referents, or mental states.
  The job of a semantic theory, as such, is to pair linguistic expressions
  with the entities that constitute their meanings.
  I argue for an alternative view on which meaning attributions are simply
@@ -108,8 +111,8 @@ ality as a claim about the generalization of linguistic abilities rather
 
 \begin_layout Standard
 With the stage set for a new approach, I use Chapter 4 to develop a formal
- framework for describing the linguistic phenomena that fall out of meaning
- attributions.
+ framework for describing the linguistic phenomena that fall out of attributions
+ of linguistic comprehension.
  This framework describes such phenomena both in terms of abstract input-output
  functions computed by cognitive systems, and in terms of within-system
  processes that serve to implement these computations.
@@ -133,8 +136,8 @@ A caveat is that I largely avoid any discussion of the important and highly
  model of question answering that is designed exhibit a rudimentary form
  of linguistic comprehension.
  The key feature of the model is that it allows each item in a stream of
- linguistic input to impose constraints on how the model responds to a subsequen
-t input stream that elicits an answer to a question.
+ linguistic input to impose mulitple constraints on how the model responds
+ to subsequent inputs.
  
 \end_layout
 
@@ -152,7 +155,7 @@ s typically lodged against these theories.
  I also illustrate how the framework is consistent with different mathematical
  interpretations (e.g.
  probabilistic, control-theoretic, etc.).
- I conclude, finally, with a brief discussion of directions for future research.
+ Finally, I conclude with a brief discussion of directions for future research.
  
 \end_layout
 
@@ -384,9 +387,11 @@ key "EliasmithAnderson:2003"
  responsible for computing transformations on an implicit vector space through
  their neural activities.
  Hypothesizing that a particular neural ensemble computes a particular transform
-ation is highly analogous to making a meaning attribution.
+ation is highly analogous to making a meaning attribution in the sense I
+ am considering.
  To explain, the hypothesis generates a large number of predictions concerning
- the values that can be decoded from the ensemble under various conditions.
+ the values that can be decoded from the ensemble under various conditions
+ (note too that the identity function is a special case of a transformation).
  Likewise, the hypothesis also places constraints on the properties of the
  neurons in the ensemble.
  For instance, their tuning curves need to tile the vector space in a manner
@@ -395,7 +400,7 @@ ation is highly analogous to making a meaning attribution.
  the neurons and their incoming connection weights).
  Overall, just as evidence concerning function and implementation mutually
  constrain one another in the development of neurocomputational theories,
- so too do they constraint one another in the development of semantic theories.
+ so too do they constrain one another in the development of semantic theories.
  This all should come as no surprise given the representational considerations
  that underlie the NEF.
  To explain, treating the vector that characterizes a neural population's
@@ -408,7 +413,15 @@ representation
 \end_inset
 
  only makes sense in the presence of futher assumptions about the system
- in which that population resides.
+ in which that population resides 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "see"
+key "Eliasmith:2000"
+
+\end_inset
+
+.
  Namely, assumptions need to be made about the other groups of neurons to
  which this population is connected, and about relations between the behaviors
  of these neurons and certain external events (e.g.
@@ -558,24 +571,24 @@ We aren’t happy about semantics.
 \end_layout
 
 \begin_layout Standard
-My goal in this chapter is review a number of existing approaches to describing
- the meanings of natural language expressions.
- In what follows, I highlight the strengths and weaknesses of these approaches
- and provide a brief summary of open problems that need to be solved in
- order to satisfy all of the criteria introduced in the previous chapter.
+My goal in this chapter is to critically review a number of existing approaches
+ to describing the meanings of natural language expressions.
+ Specifically, I evaluate work in fields of (a) formal semantics, (b) distributi
+onal semantics, and (c) connectionist modelling.
+ I highlight the strengths and weaknesses of each approach and provide a
+ brief summary of open problems that need to be solved in order to satisfy
+ all of the criteria introduced in the previous chapter.
 \end_layout
 
 \begin_layout Standard
-The analysis proceeds in three stages.
- First, I evaluate contemporary work in formal semantics.
- This work stems largely from Montague's (1970) insight that model-theoretic
- intepretations of the sort applied to formal languages can also be applied
- to natural languages.
- To explain, a model-theoretic interpretation defines a mapping between
+To start with formal semantics, work in this field stems largely from Montague's
+ (1970) insight that model-theoretic intepretations of the sort applied
+ to formal languages can also be applied to natural languages.
+ A model-theoretic interpretation, to explain, defines a mapping between
  a set of linguistic expressions and a set of mathematical objects.
- In the case of a first order language, the objects in question are drawn
- from sets of individuals and truth values, along with functions and relations
- defined on these sets 
+ In the case of the language of first order logic, for example, the objects
+ in question are drawn from sets of individuals and truth values, along
+ with functions and relations defined on these sets 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Carpenter:1997"
@@ -583,9 +596,10 @@ key "Carpenter:1997"
 \end_inset
 
 .
- Once each simple linguistic term is interpreted in this way, a truth value
- is assigned every sentence in the language.
- According to most formal semanticists, the meaning of sentence is captured
+ Once each simple term in the language is interpreted with respect to one
+ of these mathematical objects, truth values can be recursively assigned
+ to every sentence in the language.
+ An important assumption here is that the meaning of each sentence is captured
  by the class of interpretations that make it true (or, equivalently, the
  class of models that satisfy the sentence).
  It is for this reason that 
@@ -610,13 +624,20 @@ formal semantics
 \begin_layout Standard
 To their credit, formal semanticists have produced influential analyses
  of a variety of linguistic phenomena involving things like quantification,
- tense, modality, and anaphora.
+ tense, modality, and anaphora 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "e.g."
+key "Carpenter:1997"
+
+\end_inset
+
+.
  But it should be obvious that this work is unsatisfactory from the perspective
  of the criteria introduced in Chapter 1.
- Most importantly, model theoretic approaches typically have little predictive
- adequacy.
- They are simply not designed to account for cognitive and behavioral aspects
- of language use 
+ Most importantly, model-theoretic approaches have little predictive adequacy
+ - they are simply not designed to account for cognitive and behavioral
+ aspects of language use 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Jackendoff:2002,Partee:1980"
@@ -624,8 +645,8 @@ key "Jackendoff:2002,Partee:1980"
 \end_inset
 
 .
- To illustrate with an example, a standard model-theoretic interpretation
- to give the word 
+ To explain with an example, a standard model-theoretic interpretation to
+ give the word 
 \begin_inset Quotes eld
 \end_inset
 
@@ -633,11 +654,10 @@ table
 \begin_inset Quotes erd
 \end_inset
 
- is the set of things that are tables.
- Needless to say, this set of objects does not give rise to the sort of
- expectations that would satisfy the predictive adequacy criterion unless
- numerous further assumptions are made concerning how they are represented
- in the minds of language users.
+ is the set of things that are tables, which needless to say does not give
+ rise to the sort of expectations that would satisfy the predictive adequacy
+ criterion unless numerous further assumptions are made concerning how tables
+ are represented in the minds of language users.
  Some see this abstraction away from empirical considerations as a virtue
  
 \begin_inset CommandInset citation
@@ -660,10 +680,9 @@ key "Partee:1980,Jackendoff:2002"
 \end_layout
 
 \begin_layout Standard
-Nonetheless, it is important to note that the methods of formal semantics
- are not intrinsically incapable of producing good explanations of cognitive
- and linguistic phenomena.
- These methods are committed to the idea that meanings are denotations,
+This said, the methods of formal semantics are not intrinsically incapable
+ of producing good explanations of cognitive and linguistic phenomena.
+ Formal semanticists are committed to the idea that meanings are denotations,
  but the denotations in question need not be mathematical objects: they
  could be states in a cognitive model, computer programs, linguistic expressions
 , or any number of other things (Liang & Potts, 2015).
@@ -703,27 +722,17 @@ key "Liang:2013"
 \end_layout
 
 \begin_layout Standard
-In the next stage of my analysis, I examine what are referred to as 
-\begin_inset Quotes eld
+In the next stage of my analysis, I evaluate distributional models of semantics.
+ These models are motivated by the idea that a word's meaning can be captured
+ by the contexts in which it occurs 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "TurneyPantel:2010"
+
 \end_inset
 
-distributional
-\begin_inset Quotes erd
-\end_inset
-
- models of meaning.
- Motivated by the idea that a word's meaning can be captured by 
-\begin_inset Quotes eld
-\end_inset
-
-the company it keeps
-\begin_inset Quotes erd
-\end_inset
-
- (Firth qtd.
- in Grefenstette, 2013), these models are typically generated by encoding
- word co-occurence information from text corpora into a high-dimensional
- vector space 
+, and are typically constructed by encoding statistical information from
+ text corpora into a high-dimensional vector space 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Clark:2015,TurneyPantel:2010,LandauerDumais:1997"
@@ -731,10 +740,10 @@ key "Clark:2015,TurneyPantel:2010,LandauerDumais:1997"
 \end_inset
 
 .
- The vectors that result from this process possess geometric relationships
- that capture semantic relationships of various kinds.
- For instance, the vectors for words associated with a particular abstract
- category (e.g.
+ The vectors in this space are generated so as to possess geometric relationship
+s that capture semantic relationships of various kinds.
+ For instance, vectors for words associated with a particular abstract category
+ (e.g.
  sports, food, animals, etc.) will tend to cluster together.
 \end_layout
 
@@ -794,7 +803,7 @@ bag of words
 \end_layout
 
 \begin_layout Standard
-it also true that a great deal of effort has been directed towards incorporating
+It also true that a great deal of effort has been directed towards incorporating
  compostionality into these models.
  For instance, there is a long history of using 
 \begin_inset Quotes eld
@@ -1023,19 +1032,13 @@ My goal in this chapter is to argue for an alternative interpretation of
  which the expectations associated with the use of a complex expression
  are derivable from the expectations associated with the uses of its constituent
 s.
- My commitment to this claim is more or less required by the representational
- considerations outlined in Chapter 1, and in some respects it is actually
- a somewhat conservative commitment: if meanings are expectations, broadly
- construed, then my formulation is perfectly consistent with the standard
- account of compositionality.
- To explain, the principle merely states that there is some systematic relations
-hip between the meanings of simple and complex linguistic expressions.
- No constraints whatsoever are placed on what meanings actually are.
- However, given that conventional wisdom is largely commited to the idea
- that meanings are entities of some kind, it is reasonable to treat my account
- of semantic composition as a fairly significant departure from the status
- quo.
+ The key novelty of this claim is that it produces a shift in emphasis towards
  
+\end_layout
+
+\begin_layout Standard
+My commitment to this claim is more or less required by the representational
+ considerations outlined in Chapter 1, and i
 \end_layout
 
 \begin_layout Standard
@@ -1246,9 +1249,16 @@ One might argue that the impact of contextual features on semantic composition
 \end_layout
 
 \begin_layout Standard
-Finally, I conclude the chapter by noting that my proposal I hope to have
- cast doubt on this assumption by showing how it leads to a view of linguistic
- cognition that is both empirically problematic and theoretical restrictive.
+in some respects it is actually a somewhat conservative commitment: if meanings
+ are expectations, broadly construed, then my formulation is perfectly consisten
+t with the standard account of compositionality.
+ To explain, the principle merely states that there is some systematic relations
+hip between the meanings of simple and complex linguistic expressions.
+ No constraints whatsoever are placed on what meanings actually are.
+ However, given that conventional wisdom is largely commited to the idea
+ that meanings are entities of some kind, it is reasonable to treat my account
+ of semantic composition as a fairly significant departure from the status
+ quo.
  
 \end_layout
 
@@ -1266,7 +1276,8 @@ For a large class of cases—though not for all—in which we employ the word
 
 \begin_layout Standard
 In this chapter, I take up the task of appropriately specifying the functions
- performed by a cognitive system that satisfies a particular meaning attribution.
+ performed by a cognitive system that satisfies a particular attribution
+ of linguistic comprehension.
  My goal is to iteratively develop a framework that accounts for each of
  the criteria introduced in Chapter 1 while also accommodating the insights
  obtained in Chapters 2 and 3.
@@ -1334,9 +1345,9 @@ lated behaviors (e.g.
 \end_layout
 
 \begin_layout Standard
-In more formal terms, the expectations associated with a meaning attribution
- can be characterized in terms of a parameterizable function that maps input
- linguistic expressions (e.g.
+In more formal terms, the expectations associated with an attribution of
+ comprehension can be characterized in terms of a parameterizable function
+ that maps input linguistic expressions (e.g.
  questions) to output linguistic expressions (e.g.
  answers).
  The parameters that determine the behavior of the function can include
@@ -1416,7 +1427,7 @@ F
 
 \begin_layout Standard
 In many respects, this abstract model is not particularly informative.
- It treats the target of the content attribution (i.e.
+ It treats the target of the attribution (i.e.
  a cognitive system) as a black box.
  Nonetheless, it is a good exercise to use an initial specification of this
  sort to help constrain further descriptions of the system's internals.
@@ -1540,11 +1551,14 @@ key "Eliasmith:2012"
  as a system that satisfies certain a functional specification involving
  simple numerical representations
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
-It would not be inaccurate to say that the model understands the numbers
- 1 through 9 in the sense outline in Chapter 1.
+It would not be inaccurate to say that the model 
+\shape italic
+understands
+\shape default
+ the numbers 1 through 9 in the sense outlined in Chapter 1.
  Spaun answers questions about these numbers accurately, and is generally
  able to behave as a human would with respect to a certain set of number-related
  tasks.
@@ -1568,30 +1582,32 @@ The remaining features of my framework are concerned with compositional
  generalization and scope.
  Generalization, to explain, is supported by allowing each item in a stream
  of linguistic input to impose a large number of constraints on the state
- of a system; collectively, these constraints 
-\end_layout
-
-\begin_layout Standard
-Because the constraints introduced by different items at different points
- in the input stream can interact with one another in a combinatorial manner,
- this framework is hypothesized to allow for a good approximation of the
- entire function specification associated with a particular meaning attribution
- from a small selection of examples that meet the specification.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Note that this is a standard description of how most supervised machine
- learning algorithms perform generalization.
-\end_layout
-
+ of a cognitive system; collectively, these constraints put the system in
+ to state that satisfies a function specification corresponding to the comprehen
+sion of a particular linguistic expression.
+ Treating linguistic cognition as a constraint-satisfaction process naturally
+ enables the generalization of linguistic abilities because the constraints
+ introduced by different linguistic inputs can interact with one another
+ in a combinatorial fashion.
+ Some of the justification for this claim must be postponed until the discussion
+ of a detailed model in the next chapter, but for the time being, it is
+ worth pointing out that a combinatorial exploitation of soft constraints
+ is precisely how many contemporary machine learning algorithms deal with
+ the 
+\begin_inset Quotes eld
 \end_inset
 
+curse of dimensionality
+\begin_inset Quotes erd
+\end_inset
+
+ that arises when a small number of training examples are used to approximate
+ a highly complex function.
  
 \end_layout
 
 \begin_layout Standard
-Scope, finally, is fostered by allowing 
+Scope, finally, is fostered by allowing the 
 \end_layout
 
 \begin_layout Section*
@@ -1599,8 +1615,17 @@ Scope, finally, is fostered by allowing
  The IRS Model of Linguistic Comprehension
 \end_layout
 
+\begin_layout Quote
+All models are wrong, but some are useful.
+ - George Box, 1979
+\end_layout
+
 \begin_layout Standard
-A starting point for developing the model consists in observing that 
+A starting point for developing the model consists in observing that when
+ a cognitive agent is exposed to a stream of linguistic input (i.e.
+ a sequence of words) ....expectations; here's a model that fits with this descripti
+on in a generalizable manner.
+ 
 \end_layout
 
 \begin_layout Section*
@@ -1633,6 +1658,21 @@ key "Weston:2015"
  As such, this dataset is used as preliminary test for IRS model's linguistic
  comprehension abilities.
  Example question-answer pairs are shown in Table 1.
+\end_layout
+
+\begin_layout Standard
+Provided that this preliminary test is successful, the next stage of the
+ benchmarking process involves testing the model on a class of questions
+ that require the use of more complex forms of background knowledge.
+ Specifically, a model or agent must use such knowledge to correctly identify
+ the referent of an ambiguous pronoun in a sentence that matches a set of
+ conditions inspired by seminal work on natural language processing by Terry
+ Winograd (see Levesque, 2011).
+ These conditions are as follows: the sentence must contain two noun phrases
+ describing unique entities, a single pronoun that refers to one of these
+ two entities, and a single word that can swapped with an alternative word
+ to change the referent of the pronoun.
+ Achieving good performance on this dataset is widely viewed to 
 \end_layout
 
 \begin_layout Standard
@@ -1938,21 +1978,6 @@ key "Weston:2015"
 \end_layout
 
 \begin_layout Standard
-Provided that this preliminary test is successful, the next stage of the
- benchmarking process involves testing the model on a class of questions
- that require the use of more complex forms of background knowledge.
- Specifically, a model or agent must use such knowledge to correctly identify
- the referent of an ambiguous pronoun in a sentence that matches a set of
- conditions inspired by seminal work on natural language processing by Terry
- Winograd (see Levesque, 2011).
- These conditions are as follows: the sentence must contain two noun phrases
- describing unique entities, a single pronoun that refers to one of these
- two entities, and a single word that can swapped with an alternative word
- to change the referent of the pronoun.
- Achieving good performance on this dataset is widely viewed to 
-\end_layout
-
-\begin_layout Standard
 The final stage of benchmarking involves using questions that extend beyond
  pronoun resolution while still requiring considerable background knowledge.
  For example, the last two rows in Table 1 describe questions about a scenario
@@ -2030,7 +2055,7 @@ key "Liang:2013"
 
 .
  Hopefully, these comparisons will show that the IRS model's performance
- offers a strong empirical case in favor of it's predictive adequacy.
+ offers a strong empirical case in favor of its predictive adequacy.
  
 \end_layout
 
@@ -2043,15 +2068,77 @@ key "Liang:2013"
 The last chapter of the thesis is concerned with revisiting a number of
  philosophical and technical debates concerning semantics in light of the
  results described in the previous chapters.
- On the philosophical front, there are two key features of my framework
- that are open to criticism.
- First, my view is committed to a version of inferential role semantics,
- to which philosophers have raised a number of well-known objections.
- For example, inferentialist theories are committed to holism about meaning,
- or the thesis that the meanings of distinct linguistic expressions are
- mutually dependent.
- Many philosophers find holism unattractive because it is arguably inconsistent
- with the possibility of effective communication.
+ 
+\end_layout
+
+\begin_layout Standard
+On a philosophical front, there are two features of my framework that are
+ open to criticism.
+ First, it is committed to an functionalist approach to semantics that many
+ research find objectionable.
+ Second, it significantly downplays the role of an independent level of
+ syntactic representation in linguistic cognition.
+ 
+\end_layout
+
+\begin_layout Standard
+With respect to the first objection, functional role semantics is often
+ criticized because it ostensibly leads to a form of meaning relativism
+ that makes the existence of successful communication miraculous 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Fodor:1998,FodorLepore:1991,FodorLepore:1996"
+
+\end_inset
+
+.
+ Notice, however, that this objection constitutes an 
+\shape italic
+empirical
+\shape default
+ argument concerning the ability of functionalist theories to account for
+ certain kinds of linguistic data (i.e.
+ data concerning communicative behavior).
+ Such an argumentative strategy is rather peculiar given that the main alternati
+ve to functional role semantics (namely, denotational semantics) is motivated
+ by decidedly 
+\shape italic
+non-empirical
+\shape default
+ considerations.
+ Lewis (1970), for example, explicitly rejects the idea that semantics should
+ tell any kind of story about how people come to learn and use a particular
+ language for communicative purposes.
+ Jackendoff (2002) argues that this lack of interest in empirical phenomena
+ has been a dominant characteristic of both theoretical linguistics and
+ the philosophy of language in the time since.
+ As such, it is not clear that the critics of functional role semantics
+ have any kind of alternative explanation of the relevant linguistic data
+ to offer.
+ 
+\end_layout
+
+\begin_layout Standard
+It also simply not true that functionalist approaches to semantics are empirical
+ly inadequate.
+ Rather they were designed from the start to take empirical considerations
+ seriously.
+ Wittgenstein (1953), who was perhaps the first functional role theorist
+ (Block, 1997), emphasizes that one ought to “look and see” what phenomena
+ arise from the usage of particular linguistic expressions (Block, 1987;
+ Harman, 1987; Biletzki & Matar, 2014).
+ And while Wittgenstein was arguably a behaviorist, later work in this tradition
+ offers a more nuanced account of how both the verbal and cognitive phenomena
+ associated with language use determine meaning.
+ For instance, Harman (1987) claims that the meanings of linguistic expressions
+ are parasitic on the meanings of the concepts they express.
+ The meanings of concepts, in turn, are determined by their functional role
+ in a cognitive system (p.
+ 1).
+ The model described in the previous chapter offers a clear example of how
+ claims in this spirit can be made precise in practice.
+ Put simply, the model is a clear counterexample to the criticisms concerning
+ empirical adequacy.
  
 \end_layout
 
@@ -2061,7 +2148,45 @@ On a more technical front, I show how it is possible to mathematically intrepret
  First, I illustrate how the model's behavior can be described in probabilistic
  terms involving inference on a joint distribution over words in particular
  sentential positions.
- Moreover, many of the individual components of the IRS model 
+ Inference, in this case, involves computing a conditional distribution
+ based on some form of prior input (e.g.
+ a story) and some form of prompt (e.g.
+ a question).
+ It also possible to intrepret many of the sub-components in the IRS as
+ model as performing statistical inference.
+ For example, the recurrent network used to predict the syntactic categories
+ of each item in an input stream can be thought of as computing the probability
+ of each category conditioned on prior items.
+ Second, it is also possible to interpret the model as a system in which
+ linguistic input is a control signal that drives the system through a desired
+ sequence of states.
+ This control-theoretic interpretation is applicable due to the fact that
+ most of the model's components are recurrently connected neural ensembles
+ that implement dynamical systems.
+ Moreover, given that dynamics and control are central parts of both the
+ SPA and the NEF, it follows almost trivially that model can described in
+ terms of a set of control-theoretic state variables changing over time.
+ 
+\end_layout
+
+\begin_layout Standard
+These technical are important because they illustrate how the model straddles
+ a number of common theoretical divisions in cognitive science.
+ Modelling paradigms are often presented as being mutually exclusive or
+ as being committed to a single approach 
+\end_layout
+
+\begin_layout Standard
+With respect to the second objection, it is worth noting that mainstream
+ 
+\begin_inset Quotes eld
+\end_inset
+
+syntacto-centric
+\begin_inset Quotes erd
+\end_inset
+
+ approaches to linguistic theorizing have not led 
 \end_layout
 
 \begin_layout Section*
@@ -2073,12 +2198,14 @@ In all, there are two main contributions proposed in this thesis.
  The first contribution is a re-evaluation of some of the core concepts
  at play in research on semantics.
  Specifically, I provide novel account of what meaning attributions amount
- to, along with a novel account semantic composition.
- The second contribution is demonstration of how these theoretical insights
- can applied to build formally precise model of question-answering behavior.
- Such behavior, again, can be used to operationalize a measure of linguistic
- comprehension, and as such, the model provides insight into the ways in
- which 
+ to, along with a novel account of semantic composition.
+ The second contribution is a demonstration of how these theoretical insights
+ can applied to build a formally precise model of question-answering behavior.
+ Such behavior can be used to operationalize linguistic comprehension, and
+ as such, the model is designed to provide insights into how people produce
+ and understand lingustic expressions.
+ If this model is at all on the right track, If this model were to scale
+ 
 \end_layout
 
 \begin_layout Standard
