@@ -1549,17 +1549,9 @@ key "Eliasmith:2013"
  that, with a few adjustments, is capable of implementing the functions
  associated with sophisticated forms of linguistic cognition.
  The architecture in question, the SPA, makes use of a class of representations
- called 
-\begin_inset Quotes eld
-\end_inset
-
-semantic pointers
-\begin_inset Quotes erd
-\end_inset
-
- that encode compressed approximations of symbol structures while exhibiting
- appropriate relationships towards a wide variety of perceptual and motor
- states.
+ called semantic pointers that encode compressed approximations of symbol
+ structures while exhibiting appropriate relationships towards a wide variety
+ of perceptual and motor states.
  
 \end_layout
 
