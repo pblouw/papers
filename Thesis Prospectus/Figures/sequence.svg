@@ -264,8 +264,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.81402107"
-     inkscape:cx="258.39056"
-     inkscape:cy="862.70752"
+     inkscape:cx="403.96419"
+     inkscape:cy="715.29119"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -698,15 +698,15 @@
     <text
        sodipodi:linespacing="125%"
        id="text7796"
-       y="349.71411"
-       x="680.22565"
+       y="411.13757"
+       x="665.48401"
        style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          id="tspan7798"
          style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';text-align:center;writing-mode:lr-tb;text-anchor:middle"
          sodipodi:role="line"
-         x="680.22565"
-         y="349.71411">arms-swing-bat</tspan></text>
+         x="665.48401"
+         y="411.13757">arms-swing-bat</tspan></text>
     <image
        y="-156.24039"
        x="101.99556"
@@ -767,5 +767,29 @@
          id="tspan7923"
          x="368.91855"
          y="118.16344">ACTIVITY</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="663.90985"
+       y="333.86298"
+       id="text4507"
+       sodipodi:linespacing="125%"><tspan
+         y="333.86298"
+         x="663.90985"
+         sodipodi:role="line"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         id="tspan4509">round</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4511"
+       y="351.83307"
+       x="663.90985"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan4513"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         sodipodi:role="line"
+         x="663.90985"
+         y="351.83307">small</tspan></text>
   </g>
 </svg>
