@@ -1,0 +1,1240 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Natural Language Understanding in a Large-Scale Brain Model
+\end_layout
+
+\begin_layout Author
+Peter Blouw and Chris Eliasmith
+\end_layout
+
+\begin_layout Subsection*
+Introduction
+\end_layout
+
+\begin_layout Standard
+A long-standing goal of artificial intelligence research is to create computatio
+nal systems that understand natural language in the same way that humans
+ do.
+ Efforts to achieve this goal have resulted in a range of techniques for
+ successfully performing tasks such as syntactic parsing (Manning & Shutze,
+ 1999), information-retrieval (Manning et al.
+ 2008), sentiment analysis (Socher et al.
+ 2012), and speech recognition.
+ Building on these successes, researchers have recently attempted to use
+ machine learning techniques to develop question answering systems that
+ roughly approximate the conversational abilities of ordinary people (Weston
+ et al.
+ 2014, Lin).
+ These systems are rapidly improving, but they also have a number of significant
+ limitations.
+ On the one hand, systems that perform well are typically having scaling
+ problems and are restricted to limited domains (e.g.
+ questions about US geography).
+ On the other hand, systems that scale to broad domains are typically unable
+ to accomodate non-trivial linguistic phenomena (e.g.
+ anaphora) and therefore have limited performance capabilities.
+ 
+\end_layout
+
+\begin_layout Standard
+The main challenge behind this scale-performance tradeoff is that robust
+ question answering requires the use of contextual information and world
+ knowledge that is difficult to encode using conventional machine learning
+ methods.
+ To illustrate, consider a simple sentence such as 
+\begin_inset Quotes eld
+\end_inset
+
+the boy waited for the pitch and then hit the ball over the fence
+\begin_inset Quotes erd
+\end_inset
+
+.
+ A competent speaker of English is able use their knowledge of sports and
+ childhood activities to rapidly infer from this sentence that the boy is
+ likely playing baseball, that he has used a bat to hit the ball, and that
+ the phrase 
+\begin_inset Quotes eld
+\end_inset
+
+over the fence
+\begin_inset Quotes erd
+\end_inset
+
+ refers to where the ball went after he hit it, rather than to the location
+ of the ball when he hit it.
+ Artificial systems, by comparison, have considerable difficulty making
+ such inferences.
+ The problem is that these systems lack the ability to automatically determine
+ 
+\shape italic
+which
+\shape default
+ pieces of knowledge need to be applied in order to correctly answer questions
+ about the boy's activities.
+ 
+\end_layout
+
+\begin_layout Standard
+Our research aims to help solve this problem.
+ Specifically, we propose to implement and test a constraint-based question
+ answering system using a biologically plausible neural architecture.
+ This architecture functions to encode simple linguistic expressions into
+ 
+\begin_inset Quotes eld
+\end_inset
+
+mental models
+\begin_inset Quotes erd
+\end_inset
+
+ that incorporate salient background knowledge and support querying to perform
+ inferences of the sort just described.
+ The design of the architecture (discussed below) is motivated by the idea
+ that the syntactic and semantic knowledge people use to understand language
+ can be represented by a large set of interacting constraints that favor
+ and penalize the co-occurence of particular features in a mental representation
+ of an expression's meaning.
+ This design allows large numbers of constraints acting in parallel to filter
+ out irrelevant background knowledge and highlight relevant background knowledge
+, thereby solving the problem of determining which pieces of knowledge need
+ to be applied in order to provide the correct answer to a question.
+ To implement the architecture, we employ modeling methods recently used
+ to construct what is currently the world’s largest functional brain model,
+ Spaun.
+ These methods enable the creation of large-scale, functional cognitive
+ models that are simulated at the level of individual spiking neurons.
+ 
+\end_layout
+
+\begin_layout Standard
+There are two main reasons we adopt a more neurally detailed approach than
+ is typical in the design of question answering systems.
+ The first reason concerns functional integration.
+ Models like Spaun are explicitly designed to flexibly coordinate behaviors
+ that simulatenously make use of perception, memory, inference, and control.
+ Sophisticated linguistic tasks are widely agreed to make use of many of
+ these capacities (), so it is important to design language processing systems
+ that do so as well.
+ The second reason concerns the selection of the best representations and
+ computations for performing language processing.
+ Structured, distributed representations of the sort found in neural systems
+ are ideal for capturing the graded and violable patterns that characterize
+ natural language (), and neural architectures are well-suited for implementing
+ constraint satisfication processes that are increasingly thought to be
+ at the core of linguistic cognition.
+\end_layout
+
+\begin_layout Subsection*
+Research Description
+\end_layout
+
+\begin_layout Standard
+The project has three stages, each of which builds towards a more sophisticated
+ form of question answering.
+ The first stage focuses on syntactic parsing, or the mapping of linguistic
+ expression onto a description of its structure that supports simple forms
+ of querying.
+ Our goal in this stage is to construct an extended version of Spaun that
+ is capable of encoding a distributed representation of a linguistic input
+ into a distributed representation of a parse tree.
+ We assume that grammatical knowledge can be represented by a set of interacting
+ constraints that favor and penalize the co-occurrence of certain structural
+ features in a parse tree (Smolensky & Legendre, 2006).
+ Such constraints can be encoded in the synaptic weights between populations
+ of simulated neurons, and the effect of these weights is to drive neural
+ activity over time towards states that correspond to a representation of
+ the optimal parse of a linguistic input.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset VSpace 0in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/peterblouw/Desktop/White Paper/sentence.pdf
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/peterblouw/Desktop/White Paper/QA.pdf
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset VSpace 0in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/peterblouw/Desktop/White Paper/dependencies.pdf
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The first stage of the project involves using syntactic dependency trees
+ for question answering.
+ Clockwise from the top left: a simple sentence with arrows indicating syntactic
+ dependencies, a tree describing these dependencies in more detail, and
+ two question-answer pairs.
+ Mathematically, the tree is encoded as a distributed representation in
+ the following manner: 
+\size footnotesize
+
+\begin_inset Formula $\mathrm{PARSE}=chased\varoast\mathrm{SUBJ\varoast(}dog+\mathrm{DET}\varoast the)+chased\varoast\mathrm{OBJ}\varoast(cat+\mathrm{DET}\varoast the)$
+\end_inset
+
+.
+ 
+\size default
+Each word or dependency in the encoding corresponds to a vector, and the
+ symbol 
+\begin_inset Formula $\varoast$
+\end_inset
+
+ corresponds to the operation of circular convolution, which can be thought
+ of as a compression operation.
+ To query the parse, we convolve a query vector (e.g.
+ 
+\size scriptsize
+
+\begin_inset Formula $\mathrm{QUESTION}=(chased\varoast\mathrm{OBJ})^{-1}$
+\end_inset
+
+
+\size default
+) with the parse vector to extract an answer (e.g.
+
+\size scriptsize
+ 
+\begin_inset Formula $\mathrm{ANSWER=PARSE\varoast QUESTION\approx}\ cat+\mathrm{DET}\varoast the$
+\end_inset
+
+
+\size default
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To implement the parser, we will use mathematical techniques described in
+ Eliasmith & Anderson (2003) to map the soft constraints defining a simple
+ grammar onto a set of synaptic weights in Spaun.
+ Notably, a collection of interacting soft-constraints can be used to specify
+ any formal language (Smolensky & Legendre, 2006), so we adopt a simple
+ context-free grammar as our starting point.
+ The result of defining a mapping between soft constraints and synaptic
+ weights is that each pattern of neural activity in the model can be assigned
+ a single scalar value (i.e.
+ the value of an “energy function”) that reflects the degree to which the
+ constraints in question are being satisfied.
+ Over time, the state of the system will gravitate towards a position that
+ minimizes this value and thereby involves a minimal degree of constraint
+ violation.
+ One can think of this trajectory through the model's state space as a paralleli
+zed execution of the “rules” defining a grammar.
+ The endpoint of the trajectory is a vector that encodes a dependency tree
+ describing the syntactic relations that hold between a set of words.
+ This dependency tree can then be queried to answer simple questions of
+ the sort described in Figure 1.
+\end_layout
+
+\begin_layout Standard
+The second stage of the project focuses on semantic parsing, or the mapping
+ of linguistic expression onto a formal representation that can be used
+ to retrieve information from memory.
+ Our goal in this stage is to extend the model developed in the previous
+ stage to encode dependency trees that contain useful semantic information.
+ We adopt a modified version of dependency-based compositional semantics
+ (DCS) to accomplish this goal.
+ DCS, to explain, defines a semantic parse in terms of predicates (e.g.
+ 'person', 'city', 'author' etc.) and relations (e.g.
+ 'join') that mirror the words and dependencies present in a syntactic parse.
+ Each predicate maps to one or more representations encoded in memory, and
+ each relation between predicates maps to a link between the corresponding
+ representations that is also encoded in memory.
+ To explain further with an example, one branch of a DCS tree might contain
+ two unary predicates (e.g.
+ 'person' and 'president') connected by a single relation (e.g.
+ 'join').
+ This branch can be thought of as specifying a partial constraint on memory
+ retrieval that favors a representation of a single entity that is both
+ a person and a president (the join relation indicates a requirement that
+ 'person' and 'president' apply to the same thing).
+ A complete tree, in turn, specifies a collection of additional constraints
+ that fully determine the outcome of the memory retrieval process.
+ The benefits of using this DCS-based representation scheme are that it
+ (a) offers an integrated account of syntax and semantics (i.e.
+ syntactic and semantic processes interact to mutually determine the model's
+ parsing behavior), and that it (b) allows for a relatively simple encoding
+ using distributed representations.
+ To perform question answering, we parse a question onto a DCS tree, and
+ then using this tree to search an associative memory for an appropriate
+ answer.
+ An intuitive example of this process is shown in Figure 2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset VSpace 0in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/peterblouw/Desktop/White Paper/qadependencies.pdf
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Graphics
+	filename /Users/peterblouw/Desktop/White Paper/semanticparse.pdf
+	scale 65
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset VSpace 0in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/peterblouw/Desktop/White Paper/assocmem.pdf
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The second stage of the project involves using dependency-based compositional
+ semantics for question answering.
+ Counter-clockwise from the top left: a simple sentence with arrows indicating
+ syntactic dependencies, a DCS tree indicating a set of semantic dependencies,
+ and an illustrating of the procedure this DCS tree is used to retrieve
+ information from memory.
+ Mathematically, the DCS tree is encoded the same way as the syntactic tree
+ discussed in Figure 1.
+ (e.g.
+\size footnotesize
+
+\begin_inset Formula $\mathrm{PARSE}=)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To implement parsing with DCS trees, we first specify a set of constraints
+ that describe how individual words are mapped onto the predicates and relations
+ that make up each tree.
+ These constraints cannot be derived from a formal grammar (because there
+ are no formal grammars for semantic structures), so we instead perform
+ supervised learning on correct question-answer pairs using a method described
+ in Liang et al.
+ (2013).
+ The method can be described briefly as follows.
+ First, each word in a given question is paired with a set of compatible
+ predicates, and based on this pairing, a set of candidate parses are generated
+ for the question by conjoining the predicates using all possible configurations
+ of relations.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The number of relations is quite small.
+ For example, common syntactic dependencies such as SUBJ, OBJ, and DET are
+ mapped to the semantic relation JOIN, which indicates that joined predicates
+ should have equivalent extensions.
+\end_layout
+
+\end_inset
+
+.
+ Each candidate parse will retrieve certain representations from memory,
+ and the goal of learning is obtain a set of constraints that favor the
+ candidate that retrieves the 
+\shape italic
+right
+\shape default
+ representations from memory.
+ Constraints are defined between words and tree components, such that each
+ question-parse pair can be assigned a feature vector that contains a dimension
+ for each possible constraint and a dimension value indicating whether the
+ constraint is satisfied (1), violated (-1), or inapplicable (0).
+ Next, each question-parse pair is scored by taking the inner product of
+ the feature vector and initially random parameter vector.
+ The goal is to learn a parameter vector that assigns the correct parse
+ a higher score than all of the other candidate parses for a given question.
+ We accomplish this goal by iteratively updating the parameter vector through
+ gradient descent to favor correct parses of a large selection of training
+ questions.
+ Finally, once learning is complete, the constraints defined by the parameter
+ vector are mapped onto a set of synaptic weights in Spaun such that each
+ pattern of neural activity in a parsing network can again be assigned a
+ scalar energy value.
+ Parsing then occurs via energy minimization as before.
+\end_layout
+
+\begin_layout Standard
+After a question has been parsed onto a distributed encoding of a DCS tree,
+ this tree is provided as input to an associative memory, which then returns
+ an answer to the question.
+ To understand how this process works, it is useful to think of the associative
+ memory as encoding a knowledge base in the form of a graph, and the parse
+ as encoding a graph template.
+ The associative memory maps a graph template to an output assigned to the
+ portion of the knowledge graph that the template best matches.
+ Because both parse trees (i.e.
+ graph templates) and knowledge base components (i.e.
+ subgraphs) are encoded as a high-dimensional vectors, it is possible to
+ match a graph template to the knowledge base stored in the associative
+ memory by computing a dot product between vectors.
+ The neural implementation of this kind of associative memory is described
+ in Stewart et al () and Crawford et al (in press).
+ The result of this combination of DCS parsing and an associative memory
+ is a system that can answer simple factual questions like 
+\begin_inset Quotes eld
+\end_inset
+
+Who is the Prime Minister of Canada
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+What is Shakespeare's most famous play
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The nature of the questions that the system is capable of answering depends
+ on the nature of the knowledge base that is used to create the system's
+ memory.
+ 
+\end_layout
+
+\begin_layout Standard
+To briefly recap, the first two stages of the project are largely concerned
+ with implementing parsing methods using distributed representations and
+ constraint-based processing.
+ The benefit of using distributed representations is improved generalization
+ to novel questions on the basis of similarity to previous questions.
+ The benefit of constraint-based processing is that a small number of constraint
+s can interact in complex ways to produce parsing behaviors that could not
+ be captured by an equally small number of rules.
+ However, despite these advantages, parsing methods only offer a partial
+ solution to the problem of recruiting appropriate background knowledge
+ to facilitate question answering.
+ The third stage of the project is accordingly focused on using the contents
+ of memory to help guide the mapping between questions and answers in a
+ more direct manner.
+\end_layout
+
+\begin_layout Standard
+Given that the goal of our system is to map questions to answers, it is
+ useful to think of the system's architecture as defining a function that
+ maps between the vector spaces in which the questions and answers are respectiv
+ely encoded.
+ Performing correct question answering in this case amounts to configuring
+ the system to compute the appropriate function given some prior information.
+ For example, we might provide information about a scenario in which a boy
+ plays baseball, and then ask questions about this scenario.
+ In mathematical terms, we wish to parameterize the function being computed
+ by a set linguistic structures provided through the description of a baseball-p
+laying scenario.
+ These linguistic structures might then retrieve related structures from
+ memory that further parameterize the function, as described in Figure 3.
+ Overall, our goal in the third stage of the project is to develop a method
+ for finding the correct question-to-answer function given some amount of
+ prior linguistic information.
+\end_layout
+
+\begin_layout Standard
+To accomplish this goal, a variant of the method used to learn parsing constrain
+ts can be applied.
+ First, we generate a set of candidate functions of the form 
+\begin_inset Formula $F:R^{Q}\rightarrow R^{A}$
+\end_inset
+
+, where 
+\shape italic
+Q
+\shape default
+ and 
+\shape italic
+A
+\shape default
+ refer to the respective dimensionalities of the question and answer spaces.
+ We constrain the space of candidates to include only those functions that
+ map valid linguistics trees to other valid linguistic trees.
+ Tree mapping operations are well-studied in the context of architectures
+ that employ distributed representations, and we use these operations to
+ generate a 
+\begin_inset Quotes eld
+\end_inset
+
+vocabulary
+\begin_inset Quotes erd
+\end_inset
+
+ of swaps between tree-components (i.e.
+ subtrees).
+ By arbitrarily recombining items from this vocabulary, we can generate
+ a collection of possible mappings from one tree to another.
+ A relatively small space of candidate functions can then be defined by
+ combinatorally pairing the same input trees with different output trees
+ across different functions.
+ 
+\end_layout
+
+\begin_layout Standard
+Next, we learn to select the best function given some set of linguistic
+ structures activated in memory.
+ Each linguistic structure defines a constraint on the selection process,
+ and we again use the collection of all such constraints to create a feature
+ vector.
+ As before, we score each function by taking the inner product of the feature
+ vector and an initially random parameter vector.
+ We then iteratively update the parameter vector to favor the correct function
+ over incorrect functions for a given set of activated structures.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/peterblouw/Desktop/funcpredict.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The third stage of the project involves integrating memory, control, and
+ inference to answer questions about simple stories.
+ The top portion of the figure describes the neural architecture of the
+ model.
+ Thick black lines indicate connections between subsystems, and thin lines
+ with arrows indicate connections that allow the action selection system
+ to monitor and modify representational states throughout the model in order
+ to compute a function that is appropriate to the contents activated in
+ memory.
+ When a story is provided as input to the model, it is encoded as a set
+ of linguistic structure (i.e.
+ parses) in working memory.
+ These parses then retrieve a set of related structures from long-term memory.
+ Next, when a question is provided as input to the model, the structures
+ previously activated in memory guide the action selection system to compute
+ the appropriate function, as indicated by the grey box in the bottom portion
+ of figure.
+ The result of this computation is answer that is passed to the output of
+ the model.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Once learning is complete, we use the resulting parameters to define a neural
+ model with an action selection system that controls how input questions
+ are mapped to answers.
+ Because each function favored a set of linguistic structures 
+\end_layout
+
+\begin_layout Standard
+Overall, the result 
+\end_layout
+
+\begin_layout Standard
+s that the model computes a question-to-answer function that is sensitive
+ to both the scenario described (e.g.
+ a boy playing baseball) and information stored in memory that is related
+ to this scenario (e.g.
+ knowledge about how baseball works).
+ Learning across a variety of scenario types and question-answer pairs is
+ hypothesized to result in a question answering system that is able to selective
+ly make use of the stored information that is most relevant to the scenario
+ being described.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Benchmarking
+\end_layout
+
+\begin_layout Standard
+To benchmark each stage of the project, we will test the performance of
+ the model on a existing question-answering datasets that include a wide
+ range of question types.
+ In the first stage, we evaluate the model's performance on questions that
+ are sensitive to structural information encoded in a sentence.
+ In the second stage, we evaluate model performance on questions that require
+ retrieval of simple facts from memory.
+ In the third stage of the project, we scale to generic questions that require
+ the model to exhibit sensitivity to a wide range of memorized information.
+ Examples questions from the datasets are shown in Table 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="5">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stage
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Background Information
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Question
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Answer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dataset
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+The office is north of the kitchen.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+What is north of the kitchen?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The office.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Weston et al.
+ (2015)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Knowledge Base
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+What is the biggest city in California? 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Los Angeles
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Liang, Jordan, & Klein (2013)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+Yann is hungry.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Where will Yann go?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The kitchen.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Weston et al.
+ (2015)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+John is eating soup at the restaurant
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+What will John use to eat the soup?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A spoon.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Blouw & Eliasmith (in prep)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+John is eating soup at the restaurant
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Did John prepare the soup?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+No.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Blouw & Eliasmith (in prep)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example questions and answers for each stage of the project.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We expect to achieve performance that is comparable to the state-of-the-art
+ on the tasks drawn from existing datasets.
+ Unfortunately, there is fairly little prior work focused on tackling the
+ problem of selecting the information that relevant to answering a particular
+ question.
+ To compensate for this lack of prior work and to assess the model's performance
+ on tasks of interest, we will generate a small dataset of question and
+ answer pairs that require the sophisticated use of background knowledge.
+ For example, the last two rows in Table 1 describe questions about a scenario
+ in which person eats soup at a restaurant.
+ Correctly answering these questions requires knowing that soup is liquid
+ (and therefore must be eaten with a spoon) and that restaurants have staff
+ that prepare meals (therefore implying that a patron would 
+\shape italic
+not
+\shape default
+ prepare the soup).
+ 
+\end_layout
+
+\begin_layout Subsection*
+Conclusion
+\end_layout
+
+\begin_layout Standard
+The deliverable outcome of the project is biologically plausible brain model
+ that performs a range of question answering tasks.
+ These tasks are specifically designed to require the kind of knowledge-based
+ inferences that current natural language processing technologies fail to
+ perform well.
+ There are two main reasons that we think that our approach is likely to
+ succeed.
+ First, it introduces a natural solution to the problem of determining which
+ pieces of knowledge need to be applied in order to arrive at a correct
+ interpretation of a sentence: large numbers of constraints acting in parallel
+ function to filter out irrelevant knowledge and highlight relevant knowledge.
+ A neural architecture of the sort we propose is naturally suited to optimizing
+ such constraints.
+ Finally, if our approach is successful, it could set the stage for developing
+ artificial agents that understand and use language in roughly the same
+ way that people do.
+ Such agents could have significant value for data analysis tasks that involve
+ natural language, and could also be usefully integrating with the technologies
+ being developed through other IARPA initiatives such as the Metaphor program,
+ KRNS, and ICArUS.
+ For all of these reasons, we think that our research can help facilitate
+ IARPA's goal of building new data analysis tools inspired by the function
+ and structure of the brain.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "/Users/peterblouw/Desktop/references"
+options "apacite"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
