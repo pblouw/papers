@@ -92,10 +92,14 @@ This thesis is concerned with the problem of ascribing meanings to expressions
  with the entities that constitute their meanings.
  I argue for an alternative view on which meaning attributions are simply
  concise ways of expressing predictive generalizations about cognitive and
- behavioral phenomena.
+ behavioural phenomena.
  To give an account of the meaning of a linguistic expression, I claim,
- is simply to give a set of defeasible expectations concerning the cognitive
- and behavioral effects of its use 
+ is to give a set of defeasible expectations concerning the behavioural
+ 
+\shape italic
+and
+\shape default
+ cognitive effects of its use 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "cf."
@@ -105,8 +109,8 @@ key "Wittgenstein:1953"
 
 .
  This empirically-oriented approach to semantics gives rise to a set of
- theoretical criteria that I outline in Chapter 1.
- In Chapter 2, I use these criteria to evaluate a number of contemporary
+ theoretical desiderata that I outline in Chapter 1.
+ In Chapter 2, I use these desiderata to evaluate a number of contemporary
  semantic theories.
  I argue that the most common problem facing these theories is that they
  are unable to explain how the meanings of simple and complex linguistic
@@ -191,7 +195,7 @@ key "Speaks:2014,Davidson:1967"
 
 .
  On the other hand, they are given the rather practical job of explaining
- linguistic and cognitive behavior 
+ linguistic and cognitive behaviour 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Recanati:2004"
@@ -211,7 +215,7 @@ key "CappelenLepore:2005,Recanati:2004"
  In practice, more or less distinct theories have been developed to achieve
  more or less distinct goals.
  For example, theories in formal semantics are designed to account for truth
- and reference, but not for linguistic behavior.
+ and reference, but not for linguistic behaviour.
  Theories in pragmatics and psychology, by comparison, are designed to do
  roughly the opposite.
  As such, there appear to be two largely independent notions of meaning
@@ -237,9 +241,9 @@ cognitive semantics
 \end_layout
 
 \begin_layout Standard
-My goal in this chapter is to motivate a cognitive approach to semantics
+My goal in this chapter is to motivate the cognitive approach to semantics
  and outline a corresponding set of theoretical desiderata.
- There are two main reasons for favoring the cognitive approach.
+ There are two main reasons for favouring the cognitive approach.
  First, it accords well with a naturalistic conception of philosophy.
  To a naturalist, meanings can be thought of as entities posited by a scientific
  theory that aims to explain how and why we use linguistic expressions in
@@ -253,9 +257,9 @@ key "Dennett:1987"
 
 \end_inset
 
-; in all such cases, the attribution is warranted because lends explanatory
- and predictive insight into certain phenomena of interest (i.e.
- phenomena involving words, objects, and particles respectively).
+; in all such cases, the attribution is warranted because it lends explanatory
+ and predictive insight into certain phenomena of interest (i.e., phenomena
+ involving words, objects, and particles respectively).
  Second, very little is lost by giving up on the considerations that have
  motivated the metaphysical approach.
  Placing reference and truth at the core of semantic theory has yielded
@@ -273,8 +277,8 @@ ons in reality burdens semantic theory with a dependency on facts about
 \end_layout
 
 \begin_layout Standard
-As a result of these considerations favoring the cognitive approach, I propose
- a set of four criteria that can be used to evaluate competing semantic
+As a result of these considerations favouring the cognitive approach, I
+ propose a set of four criteria that can be used to evaluate competing semantic
  theories:
 \end_layout
 
@@ -304,15 +308,14 @@ While these criteria are somewhat distinct from those commonly found in
  Such value, I contend, arises when the meaning attributed to a particular
  expression gives rise to successful predictions concerning (a) the cognitive
  states of individuals who produce or comprehend the expression, and (b)
- the verbal behavior of such individuals.
+ the behaviour of such individuals.
  To illustrate with an example, consider the following sentence: “The boy
- waited for the pitch and then hit the ball over the fence”.
- A competent speaker of English is able to rapidly infer from this sentence
- that the boy is likely playing baseball, that he has used a bat to hit
- the ball, and that the phrase “over the fence” refers to where the ball
- went after he hit it, rather than to the location of the ball when he hit
- it.
- The predictive adequacy criterion favors attributing a meaning to this
+ waited for the pitch and then hit the ball over the fence.” A competent
+ speaker of English is able to rapidly infer from this sentence that the
+ boy is likely playing baseball, that he has used a bat to hit the ball,
+ and that the phrase “over the fence” refers to where the ball went after
+ he hit it, rather than to the location of the ball when he hit it.
+ The predictive adequacy criterion favours attributing a meaning to this
  sentence that entails that anyone who correctly understands it will provide
  appropriate answers to questions such as 
 \begin_inset Quotes eld
@@ -339,7 +342,7 @@ entail
  the truth of certain counterfactual conditionals concerning linguistic
  or cognitive phenomena; rather it 
 \shape italic
-favors
+favours
 \shape default
  such conditionals in a violable manner.
 \end_layout
@@ -347,21 +350,20 @@ favors
 \begin_layout Standard
 The second criterion is meant to capture the idea that predictions licensed
  by a particular meaning attribution place certain requirements on things
- to which the predictions are applied (e.g.
- cognitive systems).
+ to which the predictions are applied (e.g., cognitive systems).
  For example, if a meaning attribution specifies that a certain phrase is
- likely to evoke a certain behavior in a listener, then the word and the
- behavior must be related such that this specification is met.
+ likely to evoke a certain behaviour in a listener, then the word and the
+ behaviour must be related such that this specification is met.
  However, there might be compelling evidence to suggest that a cognitive
- system is simply unable to mediate between words and behaviors in the specified
- way.
+ system is simply unable to mediate between words and behaviours in the
+ specified way.
  Such evidence ought to prompt a revision to the proposed meaning attribution.
- Similarly, if there is more compelling evidence to suggest that the behavioral
+ Similarly, if there is more compelling evidence to suggest that the behavioural
  expectations in question actually obtain, then a revision to one's account
  of cognitive processing ought to be considered.
- Overall, the implementation criterion simply favors the co-development
- of theories of linguistic behavior and linguistic cognition that are consistent
- with one another 
+ Overall, the implementation criterion simply favours the co-development
+ of theories of linguistic behaviour and linguistic cognition that are consisten
+t with one another 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "see"
@@ -424,7 +426,7 @@ key "Eliasmith:2000"
 
 .
  Namely, assumptions need to be made about the other groups of neurons to
- which this population is connected, and about relations between the behaviors
+ which this population is connected, and about relations between the behaviours
  of these neurons and certain external events (e.g.
  the presence or absence of a particular kind of stimulus).
  Content attributions, put simply, go hand-in-hand with expectations about
@@ -463,9 +465,8 @@ key "Recanati:2012,Unnsteinsson:2014"
 .
  While I do not wish to adhere strictly to this traditional picture, I do
  wish to maintain that any adequate semantic theory has to provide some
- explanation of how the meanings of complex expressions (e.g.
- sentences) are related to the meanings of their simpler parts (e.g.
- words and phrases).
+ explanation of how the meanings of complex expressions (e.g., sentences)
+ are related to the meanings of their simpler parts (e.g., words and phrases).
  
 \end_layout
 
@@ -474,15 +475,15 @@ The scalability criterion, finally, gives preference to semantic theories
  that account for the meanings of large numbers of linguistic expressions.
  It is of course not particularly controversial to say that scientific theories
  with a broad range of empirical coverage are preferable to scientific theories
- with a smaller range of coverage .
+ with a smaller range of coverage.
  But when considered in tandem with the other criteria listed above, scalability
  concerns become pressing.
  For example, some approaches to semantics are able to achieve compositionality
  along with a certain degree of predictive adequacy, but only in highly
  restricted domains.
  A salient case would be work in formal semantics that handles a limited
- range phenomena focused on things like generalized quantification and coordinat
-ion 
+ range of phenomena focused on things like generalized quantification and
+ coordination 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "LiangPotts:2015"
@@ -499,9 +500,9 @@ n types, and efforts to handle a more diverse range of types have been largely
 \end_layout
 
 \begin_layout Standard
-In the remainder of the chapter, I consider two objections the selection
+In the remainder of the chapter, I consider two objections to the selection
  of these criteria.
- The first objection maintains that they favor a kind of instrumentalism
+ The first objection maintains that they favour a kind of instrumentalism
  that is typical of theories that prioritize predictive adequacy over other
  concerns 
 \begin_inset CommandInset citation
@@ -513,8 +514,8 @@ key "Dennett:1987"
 
 .
  My response is that if the distinctions between two competing meaning attributi
-ons have no empirical basis, then it is unclear that there reasons to prefer
- one over the other.
+ons have no empirical basis, then it is unclear that there are reasons to
+ prefer one over the other.
  In other words, I am taking Lewis to heart and claiming that if two competing
  meaning attributions 
 \shape italic
@@ -550,7 +551,9 @@ key "Fodor:1998,Fodor:1987,FodorLepore:1991"
  goals requires that people be able to make good predictions in relation
  to the usage of particular linguistic expressions; hence, people converge
  on shared patterns of usage that foster predictive success.
- As such, a tempered form of relativism is to be expected rather than avoided.
+ A tempered form of relativism is to be expected rather than avoided, and
+ such relativism is in no way inconsistent with the possibility of successful
+ communication.
  
 \end_layout
 
@@ -567,8 +570,8 @@ We aren’t happy about semantics.
 \begin_layout Standard
 My goal in this chapter is to critically review a number of existing approaches
  to describing the meanings of natural language expressions.
- Specifically, I evaluate work in fields of (a) formal semantics, (b) distributi
-onal semantics, and (c) connectionist modeling.
+ Specifically, I evaluate work in the fields of (a) formal semantics, (b)
+ distributional semantics, and (c) connectionist modeling.
  I highlight the strengths and weaknesses of each approach and provide a
  brief summary of open problems that need to be solved in order to satisfy
  all of the criteria introduced in the previous chapter.
@@ -621,7 +624,7 @@ To their credit, formal semanticists have produced influential analyses
  tense, modality, and anaphora 
 \begin_inset CommandInset citation
 LatexCommand citep
-before "e.g."
+before "e.g.,"
 key "Carpenter:1997"
 
 \end_inset
@@ -630,7 +633,7 @@ key "Carpenter:1997"
  But it should be obvious that this work is unsatisfactory from the perspective
  of the criteria introduced in Chapter 1.
  Put simply, model-theoretic approaches have little predictive adequacy
- - they are simply not designed to account for cognitive and behavioral
+ - they are simply not designed to account for cognitive and behavioural
  aspects of language use 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -640,7 +643,7 @@ key "Jackendoff:2002,Partee:1980"
 
 .
  To explain with an example, a standard model-theoretic interpretation to
- give the word 
+ give to the word 
 \begin_inset Quotes eld
 \end_inset
 
@@ -648,15 +651,17 @@ table
 \begin_inset Quotes erd
 \end_inset
 
- is the set of things that are tables, which needless to say does not give
- rise to the sort of expectations that would satisfy the predictive adequacy
- criterion unless numerous further assumptions are made concerning how tables
- are represented in the minds of language users.
+ is the set of things that are tables.
+ Needless to say, this interpretation does not give rise to the sort of
+ expectations that would satisfy the predictive adequacy criterion.
+ In short, numerous further assumptions must be made concerning how tables
+ are represented in the minds of language users in order to predict how
+ those language users would use the term in novel circumstances.
  Some see this abstraction away from empirical considerations as a virtue
  
 \begin_inset CommandInset citation
 LatexCommand citep
-before "e.g."
+before "e.g.,"
 key "Lewis:1970"
 
 \end_inset
@@ -664,7 +669,7 @@ key "Lewis:1970"
 , while others see it as a flaw in need of a remedy 
 \begin_inset CommandInset citation
 LatexCommand citep
-before "e.g."
+before "e.g.,"
 key "Partee:1980,Jackendoff:2002"
 
 \end_inset
@@ -703,8 +708,8 @@ key "Liang:2013"
  It does very well with respect to compositionality, and recent efforts
  have shown promise with respect to scalability.
  The weaknesses, on the other hand, are still somewhat prohibitive.
- Predictive adequacy and implementational plausibility exist only in the
- realm of speculation.
+ Predictive adequacy and implementational plausibility pose significant
+ challenges for formal semantics.
  
 \end_layout
 
@@ -865,8 +870,8 @@ key "Socher:2012"
 
 \end_inset
 
-, or (b) tensor-based representations that can composed via operations analogous
- to the sort used by formal semanticists 
+, or (b) tensor-based representations that can be composed via operations
+ analogous to the sort used by formal semanticists 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "Clark:2015,Grefenstette:2013,Grefenstette:2015"
@@ -981,15 +986,15 @@ key "FodorPylyshyn:1988"
  by defining optimization processes that bring about transitions between
  states in a connectionist network that correspond to distinct symbol structures.
  The motivation for this research is the idea that grammatical knowledge
- can be represented by a set of interacting constraints that favor and penalize
- the co-occurrence of certain structural features in the representation
+ can be represented by a set of interacting constraints that favour and
+ penalize the co-occurrence of certain structural features in the representation
  of a linguistic expression (Smolensky & Legendre, 2006).
  Such constraints can be encoded in the synaptic weights in an artificial
  neural network, and the effect of these weights is to drive neural activity
  over time towards states that correspond to a distributed representation
  of the optimal parse of a linguistic input.
  Interestingly, Hale and Smolensky (2006) illustrate that formal languages
- in all levels of the Chomsky hierarchy can described using collections
+ in all levels of the Chomsky hierarchy can be described using collections
  of such constraints.
 \end_layout
 
@@ -1079,7 +1084,7 @@ s.
  The key novelty of this claim is that it forces a shift in emphasis away
  from the properties of linguistic representations and onto the properties
  of cognitive systems.
- My reason for favoring this shift is simple: none of the representation
+ My reason for favouring this shift is simple: none of the representation
  types discussed in Chapter 2 (e.g.
  logical forms, vectors, etc.) are capable, on their own, of yielding the
  kind of predictive adequacy required of a good semantic theory.
@@ -1113,9 +1118,9 @@ table
 \end_inset
 
  are able to generate appropriate expectations concerning the thoughts and
- behaviors of the utterer.
+ behaviours of the utterer.
  These further facts, I argue, do the majority of the empirical work, and
- so should be accommodated directly into a semantic theory.
+ so should incorporated directly into a semantic theory.
 \end_layout
 
 \begin_layout Standard
@@ -1160,9 +1165,9 @@ key "Smolensky:2014,SmolenskyLegendre:2006a,Prince:1997"
  To give an example, a determiner and a noun might together impose constraints
  on the selection of a system state with the functional disposition appropriate
  to a noun phrase.
- In turn, the resulting noun-phrase can in turn be characterized as imposing
- constraints on the selection of a system state with the functional disposition
- of a sentence.
+ In turn, the resulting noun-phrase can be characterized as imposing constraints
+ on the selection of a system state with the functional disposition of a
+ sentence.
  This sentence-level selection process can then be resolved by the introduction
  of further constraints corresponding to another sentential constituent
  (e.g.
@@ -1175,8 +1180,8 @@ key "Smolensky:2014,SmolenskyLegendre:2006a,Prince:1997"
 \end_layout
 
 \begin_layout Standard
-In the remainder of the chapter, I give two reasons for favoring this constraint
--based description of semantic composition.
+In the remainder of the chapter, I give two reasons for favouring this constrain
+t-based description of semantic composition.
  First, it is theoretically consistent with the criteria outlined in Chapter
  1.
  If meaning attributions are simply predictive generalizations associated
@@ -1199,8 +1204,8 @@ key "Unnsteinsson:2014,Recanati:2012"
 
 .
  The probabilistic expectations corresponding to a simple linguistic expression
- instead provide defeasible evidence in favor of associating certain probabilist
-ic expectations with a more complex linguistic expression.
+ instead provide defeasible evidence in favour of associating certain probabilis
+tic expectations with a more complex linguistic expression.
  By comparison, standard approaches to compositionality relate the meanings
  of simple and complex expressions through simple rules, but it is implausible
  to suppose that such rules can suffice for a semantic theory that satisfies
@@ -1221,9 +1226,10 @@ compose
  An optimization-based approach, however, has the necessary flexibility
  to define the appropriate formal relations between these functional disposition
 s.
- The reason for this flexibility is due to the fact an individual word always
- applies the same constraints to a cognitive system, but in the context
- of existing constraints introduced by other words.
+ This flexibility is due to the fact that an individual word always applies
+ the same constraints to a cognitive system, but in the context of existing
+ constraints introduced by other words that have been presented to the cognitive
+ system.
  Put simply, a finite number of constraints coupled with a finitely specified
  optimization procedure suffices to yield results appropriate to the near-infini
 te number of linguistic constructions that a competent language user is
@@ -1313,7 +1319,7 @@ finished
 s in the sentence.
  However, if it is assumed that individual words act to impose numerous
  constraints on the process of linguistic interpretation, then it follows
- that the behavior of a given word is conditioned by the other words in
+ that the behaviour of a given word is conditioned by the other words in
  the sentence.
  As such, a word like 
 \begin_inset Quotes eld
@@ -1323,7 +1329,7 @@ finished
 \begin_inset Quotes erd
 \end_inset
 
- can exhibit different kinds of compositional behavior when it occurs in
+ can exhibit different kinds of compositional behaviour when it occurs in
  different linguistic constructions.
  Moreover, extra-linguistic features of context can also be hypothesized
  to impose constraints on the selection process.
@@ -1408,7 +1414,7 @@ functional roles
 For a large class of cases—though not for all—in which we employ the word
  “meaning” it can be explained thus: the meaning of a word is its use in
  the language.
- - Ludwig Wittgenstein, 1953
+ - Wittgenstein, 1953
 \end_layout
 
 \begin_layout Standard
@@ -1428,7 +1434,7 @@ I begin by framing the predictions associated with a particular attribution
  of the meaning of the sentence in terms of the answers one would provide
  to questions about it.
  Question answering tasks are increasingly being used to benchmark semantic
- theories 
+ models 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "see e.g.,"
@@ -1459,7 +1465,7 @@ status collapsed
 As a point of clarification, I do not wish to argue that question answering
  tasks provide an exhaustive test of linguistic understanding.
  There might be good reasons to think that dispositions towards certain
- non-linguistic behaviors are also required in order for one to exhibit
+ non-linguistic behaviours are also required in order for one to exhibit
  appropriate understanding.
  For instance, it would be odd to say that one understands the meaning of
  the word 
@@ -1471,7 +1477,7 @@ violin
 \end_inset
 
  if one were unable to correctly identify violins or engage in certain violin-re
-lated behaviors (e.g.
+lated behaviours (e.g.
  retrieving violins, handling violins, etc.).
  
 \end_layout
@@ -1487,7 +1493,7 @@ In more formal terms, the expectations associated with an attribution of
  that maps input linguistic expressions (e.g.
  questions) to output linguistic expressions (e.g.
  answers).
- The parameters that determine the behavior of the function can include
+ The parameters that determine the behaviour of the function can include
  prior linguistic input (i.e.
  the sentence that is the target of the questions) and background knowledge
  that is related to this prior input.
@@ -1506,7 +1512,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/peterblouw/Desktop/functionspec.png
+	filename /Users/peterblouw/Desktop/Prospectus/functionspec.png
 	lyxscale 40
 	scale 60
 
@@ -1569,10 +1575,10 @@ In many respects, this abstract model is not particularly informative.
  Nonetheless, it is a good exercise to use an initial specification of this
  sort to help constrain further descriptions of the system's internals.
  However, if one's only goal is to achieve predictive adequacy with respect
- to verbal behavior, it might be sufficient to leave things at this abstract
+ to verbal behaviour, it might be sufficient to leave things at this abstract
  level of analysis.
  Many probabilistic models of cognition do just this by defining statistical
- processes that bring about some observed behavior 
+ processes that bring about some observed behaviour 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "e.g.,"
@@ -1680,10 +1686,10 @@ now-or-never
 
 \begin_layout Standard
 Another way in which the SPA satisfies the implementation criterion is by
- decomposing abstract behavioral functions into processes involving cognitively
+ decomposing abstract behavioural functions into processes involving cognitively
  and neurally plausible mechanisms.
  These mechanisms involve components that encode syntactic structure, store
- information over time, control behavior, and exhibit adaptation, amongst
+ information over time, control behaviour, and exhibit adaptation, amongst
  other things.
  To illustrate, it is useful to think of the Spaun model 
 \begin_inset CommandInset citation
@@ -1712,12 +1718,12 @@ understands
 
  using a neurally plausible implementation.
  Spaun, in short, is a powerful demonstration of how the SPA can act as
- a bridge between descriptions of behavioral functions and the realization
+ a bridge between descriptions of behavioural functions and the realization
  of these functions in a human brain.
  More importantly, the SPA is general enough to act as such a bridge for
- behaviors involving natural language expressions rather than simple numbers.
- Figure 2 describes hypothetical Spaun-like model that could exhibit such
- linguistic behaviors.
+ behaviours involving natural language expressions rather than simple numbers.
+ Figure 2 describes a hypothetical Spaun-like model that could exhibit such
+ linguistic behaviours.
  
 \end_layout
 
@@ -1730,7 +1736,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/peterblouw/Desktop/Screen Shot 2015-09-17 at 5.03.30 PM.png
+	filename /Users/peterblouw/Desktop/Prospectus/Screen Shot 2015-09-17 at 5.03.30 PM.png
 	lyxscale 70
 	scale 60
 
@@ -1751,7 +1757,7 @@ A slightly more complex model of linguistic comprehension that integrates
  to monitor and modify representational states throughout the model in order
  to compute a function that is appropriate to the contents activated in
  memory.
- The process of computing the function favored by a particular piece of
+ The process of computing the function favoured by a particular piece of
  background informations (e.g.
  a story) is hypothesized to involve a number of cognitive process that
  involve (a) the compression of linguistic inputs, (b) the storage of these
@@ -1791,7 +1797,7 @@ gly common
 \begin_inset CommandInset citation
 LatexCommand citep
 before "e.g."
-key "Prince:1997,Smolensky:2014,SmolenskyLegendre:2006a,Seidenberg:1997,Jackendoff:2002"
+key "Prince:1997,Smolensky:2014,SmolenskyLegendre:2006a,Seidenberg:1997,Jackendoff:2002,Blouw:2015"
 
 \end_inset
 
@@ -1847,7 +1853,7 @@ key "Gildea:2002"
 \end_inset
 
 .
- More on this point is discussed in the next chapter.
+ More on this point is presented in the next chapter.
 \end_layout
 
 \begin_layout Standard
@@ -1857,7 +1863,7 @@ Overall, there are three main features of my proposed framework.
  questions) onto output linguistic expressions (i.e.
  answers).
  Second, it breaks the functions associated with a particular attributions
- down into sub functions computed by mechanisms drawn from a neurally plausible
+ down into sub-functions computed by mechanisms drawn from a neurally plausible
  account of cognitive architecture 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -1933,7 +1939,7 @@ For this reason, I begin the description of my model with the observation
  that each item in a stream of linguistic input introduces subtle expectations
  in the mind of a listener 
 \begin_inset CommandInset citation
-LatexCommand citet
+LatexCommand citep
 after "for a related view"
 before "see"
 key "clark:2013"
@@ -2040,9 +2046,9 @@ hit
  in which a boy hits something.
  The first triplet, for example, corresponds to a scenario in which the
  boy uses a bat to hit something, while the third triplet corresponds to
- a scenario in which the boy uses a car to hit something (likely another
- car rather than a ball).
- Subsequent items in the input stream function to favor and penalize these
+ a scenario in which the boy uses a car to hit something (likely something
+ such as a fire hydrant rather than a ball).
+ Subsequent items in the input stream function to favour and penalize these
  candidate triples in an appropriate manner.
  In this case, the final noun phrase 
 \begin_inset Quotes eld
@@ -2067,7 +2073,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/peterblouw/Desktop/sequence.png
+	filename /Users/peterblouw/Desktop/Prospectus/sequence.png
 	lyxscale 50
 	scale 50
 
@@ -2096,8 +2102,8 @@ shallow
  who acted, what they did, and what they did it to).
  These shallow parses can be interpreted as retrieval cues for extracting
  information from long term memory.
- A query further constrains this retrieval process, surfacing information
- from which an answer can be directly retrieved.
+ A query further constrains this retrieval process, bringing into focus
+ information from which an answer can be directly retrieved.
  In this case, the knowledge that arms are used to swing baseball bats is
  used to answer the question 
 \begin_inset Quotes eld
@@ -2215,14 +2221,14 @@ This distinction between shallow and deep semantic parsing is naturally
  accommodated using the SPA, given its use of compression and decompression
  operations.
  I propose to treat the process by which prior input is used to condition
- the behavior of the model as a form of shallow parsing in which a sentence
+ the behaviour of the model as a form of shallow parsing in which a sentence
  is stored as a collection of semantic roles in working memory.
  Each role, in turn, can be thought of as a compressed index into the contents
  of long-term memory.
  The model performs question answering by performing a shallow parse of
  a query, extracting an appropriate semantic role from the previous parse
- stored working memory, decompressing this role, and then extracting an
- answer from the result.
+ stored in working memory, decompressing this role, and then extracting
+ an answer from the result.
  
 \end_layout
 
@@ -2281,7 +2287,7 @@ key "Petruck:1996"
 \end_inset
 
 .
- Evidence favoring the cognitive and neural plausibility of a similar kind
+ Evidence favouring the cognitive and neural plausibility of a similar kind
  of abstract semantic structure has recently been reported in Frankland
  and Greene 
 \begin_inset CommandInset citation
@@ -2311,7 +2317,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /Users/peterblouw/Desktop/architecture.png
+	filename Figures/architecture.png
 	lyxscale 30
 	scale 50
 
@@ -2338,9 +2344,8 @@ shallow
  in which a subsequent linguistic input is used to select a relevant portion
  of this parse and retrieve an answer from it.
  Details concerning these regimes are provided in the main text, but to
- give rough overview, the encoding regime parses a sentence in set of abstract
- semantic roles (i.e.
- representations that summarize 
+ give a rough overview, the encoding regime parses a sentence into a set
+ of abstract semantic roles (i.e., representations that summarize 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2350,11 +2355,11 @@ who did what to whom
 
 ), each of which functions as an index of sorts into the contents of long-term
  memory.
- Question answering involves selecting a component of the parse (i.e.
- a particular semantic role), decompressing it, and extracting an answer
- from this decompressed result.
+ Question answering involves selecting a component of the parse (i.e., a particula
+r semantic role), decompressing it, and extracting an answer from this decompres
+sed result.
  It is possible to simplify the model for initial testing purposes by omitting
- certain components, as explained in the main text.
+ certain components.
  
 \end_layout
 
@@ -2527,7 +2532,7 @@ A shallow parse of this sort facilitates question answering by imposing
 \begin_inset Formula $arms$
 \end_inset
 
- would favor the retrieval of triples such as 
+ would favour the retrieval of triples such as 
 \begin_inset Formula $arms-swing-bat$
 \end_inset
 
@@ -2548,7 +2553,7 @@ A shallow parse of this sort facilitates question answering by imposing
 \begin_inset Formula $-throw-$
 \end_inset
 
- would favor the retrieval of some of these candidate triples (e.g.
+ would favour the retrieval of some of these candidate triples (e.g.
  
 \begin_inset Formula $arms-throw-ball$
 \end_inset
@@ -2579,10 +2584,10 @@ What did the boy use to hit the ball?
 
 \begin_layout Standard
 Posing a question involves many of the same processes as sentence encoding,
- though memories associated with encoded sentence might constrain the process
- to favor particular features in a shallow semantic parse of the question
- (as indicated by the feedback from memory to the feature prediction network
- in Figure 4).
+ though memories associated with the encoded sentence might constrain the
+ process to favour particular features in a shallow semantic parse of the
+ question (as indicated by the feedback from memory to the feature prediction
+ network in Figure 4).
  The question is a parsed into a collection of semantic roles, and one or
  more of these roles is selected as a query role.
  Moreover, one of the roles from the previously encoded sentence is selected
@@ -2601,6 +2606,21 @@ Posing a question involves many of the same processes as sentence encoding,
 \end_inset
 
 .
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Note that the query roles are derived from a shallow parse of the 
+\shape italic
+question
+\shape default
+.
+ This parse has not been described in detail, and I am assuming here that
+ it contains roles for both an action and its purpose.
+\end_layout
+
+\end_inset
+
  These roles are extracted from working memory into the networks labelled
  
 \begin_inset Quotes eld
@@ -2622,10 +2642,10 @@ target role selection
  These selected roles are then used to further constrain the retrieval of
  information from long-term memory.
  The idea is that the features bound to each role apply constraints that
- favor a very small number of triples stored amongst the candidate set in
- memory.
+ favour a very small number of triples stored amongst the candidate set
+ in memory.
  Intuitively, triples that are related to the features of the agent are
- favored (i.e.
+ favoured (i.e.
  triples referencing arms, legs, etc.), along with triples related to the
  action in question (i.e.
  hitting) and the target of the action (i.e.
@@ -2671,7 +2691,7 @@ memory networks
 
 , which use distributed representations of input sentences to score the
  relevance of particular memories to answering a particular question.
- The key difference is the I impose a certain amount of linguistic structure
+ The key difference is that I impose a certain amount of linguistic structure
  on the internal representations used by the model.
  
 \begin_inset Foot
@@ -2706,7 +2726,7 @@ Quote TBD.
 To benchmark the model, I propose to test its performance on existing question-a
 nswering datasets that include a wide range of question types.
  This benchmarking procedure has potentially three stages.
- In the first stage, the model is tested on a recently released bAbl dataset
+ In the first stage, the model is tested on the recently released bAbl dataset
  of question-answer pairs designed to test for a range of abilities that
  are arguably prerequisites for linguistic understanding 
 \begin_inset CommandInset citation
@@ -2748,7 +2768,7 @@ key "Levesque:2011"
  These conditions are as follows: the sentence must contain two noun phrases
  describing unique entities, a single pronoun that refers to one of these
  two entities, and a single word that can swapped with an alternative word
- to change the referent of the pronoun.
+ to change the referent of the pronoun (see Table 1.
  Achieving good performance on this dataset is widely viewed to provide
  evidence that a model exhibits a non-trivial form of linguistic understanding.
  
@@ -3143,10 +3163,10 @@ key "Liang:2013"
 
 .
  Hopefully, these comparisons will show that the model's performance offers
- a strong empirical case in favor of its predictive adequacy.
- I conclude this chapter with an illustration of how the model's performance
- on these benchmarks can be used to make a strong argument in favor of its
- ability to meet the criteria described in Chapter 1.
+ a strong empirical case in favour of its predictive adequacy.
+ I conclude this chapter with a discussion of how the model's performance
+ on these benchmarks can be used to make a strong argument in favour of
+ its ability to meet the criteria described in Chapter 1.
  
 \end_layout
 
@@ -3179,7 +3199,7 @@ With respect to the first objection, functional role theories are often
  that makes the existence of successful communication miraculous 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "Fodor:1998,FodorLepore:1991,FodorLepore:1996"
+key "Fodor:1998,FodorLepore:1991,FodorLepore:1996,Block:1986,Peacocke:1992"
 
 \end_inset
 
@@ -3190,7 +3210,7 @@ empirical
 \shape default
  argument concerning the ability of functional role theories to account
  for certain kinds of linguistic data (i.e.
- data concerning communicative behavior).
+ data concerning communicative behaviour).
  Such an argumentative strategy is rather peculiar given that the main alternati
 ve to functional role semantics (namely, denotational semantics) is motivated
  by decidedly 
@@ -3229,9 +3249,9 @@ key "Anat:2014"
 \end_inset
 
 .
- And while Wittgenstein was arguably a behaviorist, later work in this tradition
- offers a more nuanced account of how both the verbal and cognitive phenomena
- associated with language use determine meaning.
+ And while Wittgenstein was arguably a behaviourist, later work in this
+ tradition offers a more nuanced account of how both the verbal and cognitive
+ phenomena associated with language use determine meaning.
  For instance, Harman 
 \begin_inset CommandInset citation
 LatexCommand citeyearpar
@@ -3306,7 +3326,7 @@ st approach to semantics can be designed to assign the right roles to both
  simple and complex expressions.
  This is precisely what the model described in Chapter 5 aims to accomplish.
  As such, my response to the objection is a simple counterexample to the
- general claim functional role theories are inherently non-compositional.
+ general claim that functional role theories are inherently non-compositional.
  
 \end_layout
 
@@ -3364,15 +3384,28 @@ key "McClelland:2010,Jackendoff:2002"
 \shape italic
 of
 \shape default
- - they purport to explain properties of language for which there is a paucity
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textemdash
+\end_layout
+
+\end_inset
+
+ they purport to explain properties of language for which there is a paucity
  of direct evidence.
  As such, it is increasingly being recognized that the degree to which cognitive
  systems make use of an independent level of syntactic representation has
  been broadly overstated (Christiansen & Chater, in press).
- Building on recent discussions of this topic, I advocate a view on which
- an account of syntax describes the sequence of processing steps by which
- linguistic inputs are transformed and interpreted to bring about linguistic
- behavior (Christiansen & Chater, in press).
+ Building on recent discussions of this topic, I argue that an account of
+ syntax should describe the manner by which linguistic inputs are transformed
+ into shallow parses that specify a collection of semantic roles (Christiansen
+ & Chater, in press).
  
 \end_layout
 
@@ -3387,10 +3420,10 @@ There are two main contributions proposed in this thesis.
  Specifically, I propose a novel account of what meaning attributions amount
  to, along with a novel account of semantic composition.
  The second contribution is a demonstration of how these theoretical insights
- can applied to build a formally precise model of question-answering behavior.
- Such behavior can be used to operationalize linguistic comprehension, and
- as such, the model demonstrates the empirical adequacy of my approach to
- semantics.
+ can applied to build a formally precise model of question-answering behaviour.
+ Such behaviour can be used to operationalize linguistic comprehension,
+ and as such, the model demonstrates the empirical adequacy of my approach
+ to semantics.
  Finally, my work sidesteps a number of traditional considerations in semantics
  concerning truth, reference, and compositionality on the grounds that these
  considerations are somewhat redundant from a scientific perspective.
